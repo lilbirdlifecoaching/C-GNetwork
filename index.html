@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Network — Coaches & Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e1d1b;
+    --paper: #f7f4ee;
+    --warm-mid: #e8e3d8;
+    --warm-border: #cfc9ba;
+    --gold: #c4933f;
+    --gold-light: #f0e3c8;
+    --ember: #c96b42;
+    --slate: #4a5568;
+    --ink-muted: #6b6560;
+    --tag-bg: #f0ece3;
+    --tag-border: #d4ccba;
+    --success: #3a7a45;
+    --success-bg: #edf5ee;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  header {
+    padding: 3.5rem 0 2.5rem;
+    text-align: center;
+  }
+
+  .brand-row {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .brand-link {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .brand-link:hover { color: var(--gold); }
+
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  header p.sub {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2.5rem 0 2rem;
+    justify-content: center;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--warm-border);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    transition: all 0.3s;
+  }
+
+  .step-dot.active {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: white;
+  }
+
+  .step-dot.done {
+    border-color: var(--gold);
+    background: var(--gold-light);
+    color: var(--gold);
+  }
+
+  .step-label {
+    font-family: 'Caveat', cursive;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .step-connector {
+    flex: 1;
+    height: 1px;
+    background: var(--warm-border);
+    max-width: 60px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Form card */
+  .form-card {
+    background: white;
+    border: 1px solid var(--warm-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+
+  .step-page { display: none; }
+  .step-page.active { display: block; }
+
+  .step-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-sub {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  /* Fields */
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .field label .req {
+    color: var(--gold);
+    margin-left: 2px;
+  }
+
+  .field label .hint {
+    font-weight: 300;
+    color: var(--ink-muted);
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="url"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--warm-border);
+    border-radius: 10px;
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.93rem;
+    color: var(--ink);
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--gold);
+    background: white;
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 560px) {
+    .field-row { grid-template-columns: 1fr; }
+    .form-card { padding: 1.5rem; }
+  }
+
+  /* Tag picker */
+  .tag-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+  }
+
+  .pick-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--tag-border);
+    background: var(--tag-bg);
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .pick-tag:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: var(--gold-light);
+  }
+
+  .pick-tag.selected {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .tag-group-label {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    display: block;
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  .tag-group-label:first-child { margin-top: 0.4rem; }
+
+  /* Photo upload */
+  .photo-upload {
+    border: 2px dashed var(--warm-border);
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .photo-upload:hover {
+    border-color: var(--gold);
+    background: var(--gold-light);
+  }
+
+  .photo-upload input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo-upload .upload-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--warm-border);
+  }
+
+  .photo-upload p {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+  }
+
+  .photo-upload p strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .photo-preview {
+    display: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 0.75rem;
+    border: 3px solid var(--gold-light);
+  }
+
+  /* Agreement */
+  .agreement {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: 12px;
+    border: 1px solid var(--warm-border);
+    margin-bottom: 1.5rem;
+  }
+
+  .agreement input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+
+  .agreement p {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* Navigation */
+  .form-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--warm-border);
+  }
+
+  .btn-back {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+    padding: 0.5rem 0;
+  }
+  .btn-back:hover { color: var(--ink); }
+
+  .btn-next {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    background: var(--ink);
+    border: none;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-next:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-next:active { transform: translateY(0); }
+  .btn-next:disabled { background: var(--warm-border); cursor: not-allowed; transform: none; }
+
+  .btn-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    background: var(--gold);
+    border: none;
+    border-radius: 30px;
+    padding: 0.7rem 2.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-submit:hover { background: var(--ember); transform: translateY(-1px); }
+  .btn-submit:disabled { background: var(--warm-border); cursor: not-allowed; transform: none; }
+
+  /* Error state */
+  .field-error {
+    font-size: 0.8rem;
+    color: var(--ember);
+    margin-top: 0.3rem;
+    display: none;
+  }
+
+  .field.has-error input,
+  .field.has-error textarea {
+    border-color: var(--ember);
+  }
+
+  .field.has-error .field-error { display: block; }
+
+  /* Char count */
+  .char-count {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-align: right;
+    margin-top: 0.25rem;
+  }
+  .char-count.warn { color: var(--ember); }
+
+  /* Success screen */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .success-screen.active { display: block; }
+
+  .success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--success-bg);
+    border: 2px solid #bdd6bf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .success-screen h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .success-screen h2 em { font-style: italic; color: var(--gold); }
+
+  .success-screen p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Submitting state */
+  .submitting-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(247,244,238,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    backdrop-filter: blur(3px);
+  }
+  .submitting-overlay.active { display: flex; }
+  .submitting-overlay p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--ink-muted);
+  }
+
+  .spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--warm-border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header>
+    <div class="brand-row">
+      powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> &amp; <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a>
+    </div>
+    <h1>join the <em>network</em></h1>
+    <p class="sub">Tell us who you are, how you work, and who you're best placed to help. We'll review your profile and be in touch.</p>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <div class="progress-step">
+      <div class="step-dot active" id="dot-1">1</div>
+      <span class="step-label">you</span>
+    </div>
+    <div class="step-connector"></div>
+    <div class="progress-step">
+      <div class="step-dot" id="dot-2">2</div>
+      <span class="step-label">your work</span>
+    </div>
+    <div class="step-connector"></div>
+    <div class="progress-step">
+      <div class="step-dot" id="dot-3">3</div>
+      <span class="step-label">your people</span>
+    </div>
+    <div class="step-connector"></div>
+    <div class="progress-step">
+      <div class="step-dot" id="dot-4">4</div>
+      <span class="step-label">finish</span>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="form-card" id="formCard">
+
+    <!-- STEP 1: About You -->
+    <div class="step-page active" id="step-1">
+      <h2 class="step-heading">Let's start with you</h2>
+      <p class="step-sub">The basics — who you are and how to find you.</p>
+
+      <div class="field-row">
+        <div class="field" id="field-firstName">
+          <label>First name <span class="req">*</span></label>
+          <input type="text" id="firstName" placeholder="e.g. Sarah" />
+          <p class="field-error">Please enter your first name</p>
+        </div>
+        <div class="field" id="field-lastName">
+          <label>Last name <span class="req">*</span></label>
+          <input type="text" id="lastName" placeholder="e.g. Okonkwo" />
+          <p class="field-error">Please enter your last name</p>
+        </div>
+      </div>
+
+      <div class="field" id="field-email">
+        <label>Email address <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="you@example.com" />
+        <p class="field-error">Please enter a valid email</p>
+      </div>
+
+      <div class="field">
+        <label>Your title / role <span class="req">*</span> <span class="hint">— how you'd describe yourself in a line</span></label>
+        <input type="text" id="coachTitle" placeholder="e.g. Life Coach & Spiritual Director" />
+        <p class="field-error" id="err-coachTitle">Please enter your title</p>
+      </div>
+
+      <div class="field">
+        <label>Website <span class="hint">— optional</span></label>
+        <input type="url" id="website" placeholder="https://yoursite.com" />
+      </div>
+
+      <div class="field">
+        <label>Profile photo</label>
+        <div class="photo-upload" id="photoUpload">
+          <input type="file" id="photoFile" accept="image/*" />
+          <img class="photo-preview" id="photoPreview" alt="Preview" />
+          <span class="upload-icon">☁</span>
+          <p><strong>Click to upload</strong> or drag a photo here<br>Square crops work best · JPG or PNG</p>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <span></span>
+        <button class="btn-next" id="next-1">
+          Next — your work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Your Work -->
+    <div class="step-page" id="step-2">
+      <h2 class="step-heading">How you work</h2>
+      <p class="step-sub">Pick everything that applies. This is how people will find you.</p>
+
+      <div class="field">
+        <label>Type of work <span class="req">*</span> <span class="hint">— select all that apply</span></label>
+        <span class="tag-group-label">modality</span>
+        <div class="tag-picker" id="pick-modality">
+          <span class="pick-tag" data-group="modality" data-value="life coach">life coach</span>
+          <span class="pick-tag" data-group="modality" data-value="spiritual direction">spiritual direction</span>
+          <span class="pick-tag" data-group="modality" data-value="therapeutic">therapeutic</span>
+          <span class="pick-tag" data-group="modality" data-value="somatic">somatic</span>
+          <span class="pick-tag" data-group="modality" data-value="psychodrama">psychodrama</span>
+          <span class="pick-tag" data-group="modality" data-value="leadership">leadership</span>
+          <span class="pick-tag" data-group="modality" data-value="executive">executive</span>
+          <span class="pick-tag" data-group="modality" data-value="narrative therapy">narrative therapy</span>
+          <span class="pick-tag" data-group="modality" data-value="group facilitation">group facilitation</span>
+          <span class="pick-tag" data-group="modality" data-value="story coaching">story coaching</span>
+        </div>
+
+        <span class="tag-group-label">format</span>
+        <div class="tag-picker">
+          <span class="pick-tag" data-group="modality" data-value="in-person">in-person</span>
+          <span class="pick-tag" data-group="modality" data-value="virtual">virtual</span>
+          <span class="pick-tag" data-group="modality" data-value="intensives">intensives</span>
+        </div>
+      </div>
+
+      <div class="field" id="field-bio">
+        <label>Who you are <span class="req">*</span> <span class="hint">— write in first or third person, your call</span></label>
+        <textarea id="bio" maxlength="600" placeholder="Write something honest and human. What do people say after working with you? What do you notice that others miss?"></textarea>
+        <p class="char-count" id="bio-count">0 / 600</p>
+        <p class="field-error">Please write a short bio (at least 80 characters)</p>
+      </div>
+
+      <div class="field" id="field-approach">
+        <label>How you work <span class="req">*</span></label>
+        <textarea id="approach" maxlength="500" placeholder="Your methods, frameworks, tools, or general approach. What does a session with you actually feel like?"></textarea>
+        <p class="char-count" id="approach-count">0 / 500</p>
+        <p class="field-error">Please describe your approach</p>
+      </div>
+
+      <div class="field">
+        <label>Background & credentials <span class="hint">— optional but helpful</span></label>
+        <input type="text" id="background" placeholder="e.g. M.Div, certified life coach, 12 years in ministry" />
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" id="back-2">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          back
+        </button>
+        <button class="btn-next" id="next-2">
+          Next — your people
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Your People -->
+    <div class="step-page" id="step-3">
+      <h2 class="step-heading">Who you're for</h2>
+      <p class="step-sub">Select any that describe the people you do your best work with.</p>
+
+      <div class="field">
+        <span class="tag-group-label">life stage & identity</span>
+        <div class="tag-picker">
+          <span class="pick-tag" data-group="interest" data-value="women's">women's</span>
+          <span class="pick-tag" data-group="interest" data-value="men's">men's</span>
+          <span class="pick-tag" data-group="interest" data-value="mom life">mom life</span>
+          <span class="pick-tag" data-group="interest" data-value="fathering">fathering</span>
+          <span class="pick-tag" data-group="interest" data-value="teens">teens</span>
+          <span class="pick-tag" data-group="interest" data-value="family">family</span>
+          <span class="pick-tag" data-group="interest" data-value="couples">couples</span>
+          <span class="pick-tag" data-group="interest" data-value="young adults">young adults</span>
+          <span class="pick-tag" data-group="interest" data-value="midlife">midlife</span>
+        </div>
+
+        <span class="tag-group-label">neurodivergence</span>
+        <div class="tag-picker">
+          <span class="pick-tag" data-group="interest" data-value="neuro-divergence">neuro-divergence</span>
+          <span class="pick-tag" data-group="interest" data-value="ADHD">ADHD</span>
+          <span class="pick-tag" data-group="interest" data-value="AuDHD">AuDHD</span>
+          <span class="pick-tag" data-group="interest" data-value="Autism">Autism</span>
+        </div>
+
+        <span class="tag-group-label">world & work</span>
+        <div class="tag-picker">
+          <span class="pick-tag" data-group="interest" data-value="music">music</span>
+          <span class="pick-tag" data-group="interest" data-value="tech">tech</span>
+          <span class="pick-tag" data-group="interest" data-value="creator">creator</span>
+          <span class="pick-tag" data-group="interest" data-value="art">art</span>
+          <span class="pick-tag" data-group="interest" data-value="entrepreneurship">entrepreneurship</span>
+          <span class="pick-tag" data-group="interest" data-value="ministry">ministry</span>
+          <span class="pick-tag" data-group="interest" data-value="nonprofit">nonprofit</span>
+          <span class="pick-tag" data-group="interest" data-value="healthcare">healthcare</span>
+          <span class="pick-tag" data-group="interest" data-value="education">education</span>
+          <span class="pick-tag" data-group="interest" data-value="athlete">athlete</span>
+          <span class="pick-tag" data-group="interest" data-value="career transition">career transition</span>
+        </div>
+      </div>
+
+      <div class="field" id="field-goodFor">
+        <label>A good fit if… <span class="req">*</span> <span class="hint">— one per line, 3–5 is ideal</span></label>
+        <textarea id="goodFor" placeholder="e.g. You've done the therapy but something still feels stuck&#10;You're succeeding by every external metric but it feels hollow&#10;You're in a season of big change and need a thinking partner" style="min-height: 130px;"></textarea>
+        <p class="field-error">Please add at least one "good fit" line</p>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" id="back-3">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          back
+        </button>
+        <button class="btn-next" id="next-3">
+          Almost done
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Review & Submit -->
+    <div class="step-page" id="step-4">
+      <h2 class="step-heading">Last step</h2>
+      <p class="step-sub">Your profile will be reviewed before it goes live. We'll email you when it's published — usually within a few days.</p>
+
+      <div id="review-summary" style="background: var(--paper); border-radius: 14px; border: 1px solid var(--warm-border); padding: 1.5rem; margin-bottom: 1.75rem; font-size: 0.88rem; line-height: 1.8; color: var(--slate);"></div>
+
+      <div class="agreement">
+        <input type="checkbox" id="agreeCheck" />
+        <p>I confirm that the information I've submitted is accurate, that I'm a qualified and practicing coach or guide, and that I'm happy for my profile to be published on coachesandguides.com once approved.</p>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" id="back-4">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          back
+        </button>
+        <button class="btn-submit" id="submitBtn">Submit my profile</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 14l6 6L23 8" stroke="#3a7a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>you're <em>in</em></h2>
+    <p>Profile received. We'll review it and drop you an email when it's live. Thank you for joining the network — this is exactly the kind of thing it's built for.</p>
+  </div>
+</div>
+
+<!-- Submitting overlay -->
+<div class="submitting-overlay" id="submittingOverlay">
+  <div class="spinner"></div>
+  <p>sending your profile...</p>
+</div>
+
+<script>
+// ── CONFIG ──
+// Replace this with your deployed Google Apps Script URL
+const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+// ── STATE ──
+let currentStep = 1;
+const selectedTags = { modality: [], interest: [] };
+
+// ── TAG PICKERS ──
+document.querySelectorAll('.pick-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    const group = tag.dataset.group;
+    const value = tag.dataset.value;
+    if (tag.classList.contains('selected')) {
+      tag.classList.remove('selected');
+      selectedTags[group] = selectedTags[group].filter(v => v !== value);
+    } else {
+      tag.classList.add('selected');
+      selectedTags[group].push(value);
+    }
+  });
+});
+
+// ── CHAR COUNTS ──
+function setupCharCount(textareaId, countId) {
+  const ta = document.getElementById(textareaId);
+  const ct = document.getElementById(countId);
+  const max = parseInt(ta.getAttribute('maxlength'));
+  ta.addEventListener('input', () => {
+    const len = ta.value.length;
+    ct.textContent = `${len} / ${max}`;
+    ct.classList.toggle('warn', len > max * 0.85);
+  });
+}
+setupCharCount('bio', 'bio-count');
+setupCharCount('approach', 'approach-count');
+
+// ── PHOTO PREVIEW ──
+document.getElementById('photoFile').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const preview = document.getElementById('photoPreview');
+    preview.src = e.target.result;
+    preview.style.display = 'block';
+    document.querySelector('#photoUpload .upload-icon').style.display = 'none';
+    document.querySelector('#photoUpload p').textContent = file.name;
+  };
+  reader.readAsDataURL(file);
+});
+
+// ── VALIDATION ──
+function validate(step) {
+  let valid = true;
+
+  function checkField(fieldId, inputId, condition) {
+    const field = document.getElementById(fieldId);
+    const input = document.getElementById(inputId);
+    if (!condition(input ? input.value : '')) {
+      field && field.classList.add('has-error');
+      valid = false;
+    } else {
+      field && field.classList.remove('has-error');
+    }
+  }
+
+  if (step === 1) {
+    checkField('field-firstName', 'firstName', v => v.trim().length > 0);
+    checkField('field-lastName', 'lastName', v => v.trim().length > 0);
+    checkField('field-email', 'email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    const titleField = document.querySelector('#step-1 .field:nth-child(4)');
+    if (!document.getElementById('coachTitle').value.trim()) {
+      titleField && titleField.classList.add('has-error');
+      valid = false;
+    } else {
+      titleField && titleField.classList.remove('has-error');
+    }
+  }
+
+  if (step === 2) {
+    checkField('field-bio', 'bio', v => v.trim().length >= 80);
+    checkField('field-approach', 'approach', v => v.trim().length >= 40);
+  }
+
+  if (step === 3) {
+    checkField('field-goodFor', 'goodFor', v => v.trim().length > 0);
+  }
+
+  return valid;
+}
+
+// ── STEP NAVIGATION ──
+function goToStep(n) {
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  document.getElementById(`dot-${currentStep}`).classList.remove('active');
+  document.getElementById(`dot-${currentStep}`).classList.add('done');
+  document.getElementById(`dot-${currentStep}`).textContent = '✓';
+
+  currentStep = n;
+  document.getElementById(`step-${currentStep}`).classList.add('active');
+  document.getElementById(`dot-${currentStep}`).classList.remove('done');
+  document.getElementById(`dot-${currentStep}`).classList.add('active');
+  document.getElementById(`dot-${currentStep}`).textContent = currentStep;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goBack(n) {
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  document.getElementById(`dot-${currentStep}`).classList.remove('active');
+
+  currentStep = n;
+  document.getElementById(`step-${currentStep}`).classList.add('active');
+  document.getElementById(`dot-${currentStep}`).classList.remove('done');
+  document.getElementById(`dot-${currentStep}`).classList.add('active');
+  document.getElementById(`dot-${currentStep}`).textContent = currentStep;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('next-1').addEventListener('click', () => {
+  if (validate(1)) goToStep(2);
+});
+
+document.getElementById('next-2').addEventListener('click', () => {
+  if (validate(2)) goToStep(3);
+});
+
+document.getElementById('next-3').addEventListener('click', () => {
+  if (validate(3)) {
+    buildReview();
+    goToStep(4);
+  }
+});
+
+document.getElementById('back-2').addEventListener('click', () => goBack(1));
+document.getElementById('back-3').addEventListener('click', () => goBack(2));
+document.getElementById('back-4').addEventListener('click', () => goBack(3));
+
+// ── REVIEW SUMMARY ──
+function buildReview() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const title = document.getElementById('coachTitle').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const bio = document.getElementById('bio').value.trim();
+  const modTags = selectedTags.modality.join(', ') || '—';
+  const intTags = selectedTags.interest.join(', ') || '—';
+
+  document.getElementById('review-summary').innerHTML = `
+    <div style="margin-bottom:0.75rem;"><strong style="color:var(--ink)">${firstName} ${lastName}</strong> &mdash; ${title}</div>
+    <div style="margin-bottom:0.4rem;color:var(--ink-muted);font-size:0.82rem;">${email}</div>
+    <div style="margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem;">type of work</div>
+    <div style="font-size:0.83rem;">${modTags}</div>
+    <div style="margin:0.75rem 0 0.5rem;font-size:0.8rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem;">who you're for</div>
+    <div style="font-size:0.83rem;">${intTags}</div>
+    <div style="margin:0.75rem 0 0.5rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem;">bio preview</div>
+    <div style="font-size:0.83rem;color:var(--slate);">${bio.slice(0, 160)}${bio.length > 160 ? '…' : ''}</div>
+  `;
+}
+
+// ── SUBMIT ──
+document.getElementById('submitBtn').addEventListener('click', async () => {
+  if (!document.getElementById('agreeCheck').checked) {
+    alert('Please confirm the agreement before submitting.');
+    return;
+  }
+
+  const photoFile = document.getElementById('photoFile').files[0];
+  let photoBase64 = '';
+
+  if (photoFile) {
+    photoBase64 = await new Promise(res => {
+      const reader = new FileReader();
+      reader.onload = e => res(e.target.result.split(',')[1]);
+      reader.readAsDataURL(photoFile);
+    });
+  }
+
+  const payload = {
+    firstName: document.getElementById('firstName').value.trim(),
+    lastName: document.getElementById('lastName').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    title: document.getElementById('coachTitle').value.trim(),
+    website: document.getElementById('website').value.trim(),
+    bio: document.getElementById('bio').value.trim(),
+    approach: document.getElementById('approach').value.trim(),
+    background: document.getElementById('background').value.trim(),
+    goodFor: document.getElementById('goodFor').value.trim(),
+    modalityTags: selectedTags.modality.join(', '),
+    interestTags: selectedTags.interest.join(', '),
+    photoBase64: photoBase64,
+    photoName: photoFile ? photoFile.name : '',
+    submittedAt: new Date().toISOString()
+  };
+
+  document.getElementById('submittingOverlay').classList.add('active');
+  document.getElementById('submitBtn').disabled = true;
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    document.getElementById('submittingOverlay').classList.remove('active');
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('successScreen').classList.add('active');
+    document.querySelector('.progress-wrap').style.display = 'none';
+
+  } catch (err) {
+    document.getElementById('submittingOverlay').classList.remove('active');
+    document.getElementById('submitBtn').disabled = false;
+    alert('Something went wrong. Please try again or email us directly.');
+    console.error(err);
+  }
+});
+</script>
+</body>
+</html>
