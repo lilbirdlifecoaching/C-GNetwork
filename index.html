@@ -84,6 +84,183 @@
   .char-count.warn { color: var(--ember); }
   .select-wrap { position: relative; }
   .select-wrap::after { content: '▾'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--ink-muted); pointer-events: none; font-size: 0.8rem; }
+
+  /* Credential picker */
+  .credential-body {
+    border: 1.5px solid var(--warm-border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .credential-body-header {
+    padding: 0.9rem 1.25rem;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .credential-body-header:hover { background: var(--gold-light); }
+  .credential-body-header.selected { background: var(--gold-light); border-bottom: 1.5px solid var(--warm-border); }
+
+  .credential-body-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+
+  .credential-body-sub {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+    margin-top: 0.1rem;
+  }
+
+  .credential-levels {
+    display: none;
+    padding: 1rem 1.25rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    background: white;
+  }
+
+  .credential-levels.open { display: flex; }
+
+  .cred-level {
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--tag-border);
+    background: var(--tag-bg);
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+  }
+
+  .cred-level:hover { border-color: var(--gold); color: var(--gold); }
+  .cred-level.selected { background: var(--ink); border-color: var(--ink); color: white; }
+
+  /* Doc upload */
+  .doc-upload {
+    border: 2px dashed var(--warm-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--paper);
+    position: relative;
+    margin-top: 0.75rem;
+  }
+
+  .doc-upload:hover { border-color: var(--gold); background: var(--gold-light); }
+  .doc-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .doc-upload p { font-size: 0.85rem; color: var(--ink-muted); font-weight: 300; }
+  .doc-upload p strong { color: var(--gold); font-weight: 500; }
+  .doc-upload-name { font-size: 0.82rem; color: var(--success); margin-top: 0.4rem; display: none; }
+
+  /* lil' bird section */
+  .lilbird-section {
+    background: #fff8f0;
+    border: 1.5px solid #ffaa5a;
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .lilbird-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lilbird-logo-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffaa5a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .lilbird-section h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .lilbird-section p {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .lilbird-check-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .lilbird-check-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: #ffaa5a;
+    cursor: pointer;
+  }
+
+  .lilbird-check-row label {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.55;
+    cursor: pointer;
+  }
+
+  .lilbird-cta {
+    display: none;
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 0.75rem;
+  }
+
+  .lilbird-cta.visible { display: block; }
+
+  .lilbird-cta p {
+    color: var(--warm-border);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lilbird-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffaa5a;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: 30px;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .lilbird-cta a:hover { background: var(--ember); color: white; }
   .success-screen { display: none; text-align: center; padding: 3rem 2rem; }
   .success-screen.active { display: block; }
   .success-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--success-bg); border: 2px solid #bdd6bf; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
@@ -114,7 +291,9 @@
     <div class="step-connector"></div>
     <div class="progress-step"><div class="step-dot" id="dot-4">4</div><span class="step-label">links</span></div>
     <div class="step-connector"></div>
-    <div class="progress-step"><div class="step-dot" id="dot-5">5</div><span class="step-label">finish</span></div>
+    <div class="progress-step"><div class="step-dot" id="dot-5">5</div><span class="step-label">credentials</span></div>
+    <div class="step-connector"></div>
+    <div class="progress-step"><div class="step-dot" id="dot-6">6</div><span class="step-label">finish</span></div>
   </div>
 
   <div class="form-card" id="formCard">
@@ -257,8 +436,103 @@
       <div class="form-nav"><button class="btn-back" id="back-4"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> back</button><button class="btn-next" id="next-4">Review & submit <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
     </div>
 
-    <!-- STEP 5 -->
+    <!-- STEP 5 — CREDENTIALS -->
     <div class="step-page" id="step-5">
+      <h2 class="step-heading">Credentials & certification</h2>
+      <p class="step-sub">Completely optional — but if you hold a recognised credential, we'd love to show it. If you select one you'll need to upload proof so we can verify it.</p>
+
+      <div class="field">
+        <label>Professional credentials <span class="hint">— select all that apply</span></label>
+
+        <div class="credential-body" id="cred-icf">
+          <div class="credential-body-header" onclick="toggleCred('icf')">
+            <div>
+              <div class="credential-body-name">ICF — International Coaching Federation</div>
+              <div class="credential-body-sub">The world's largest coaching body · ACC, PCC, MCC</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#c4933f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="credential-levels" id="levels-icf">
+            <span class="cred-level" data-body="ICF" data-level="ACC">ACC</span>
+            <span class="cred-level" data-body="ICF" data-level="PCC">PCC</span>
+            <span class="cred-level" data-body="ICF" data-level="MCC">MCC</span>
+          </div>
+        </div>
+
+        <div class="credential-body" id="cred-emcc">
+          <div class="credential-body-header" onclick="toggleCred('emcc')">
+            <div>
+              <div class="credential-body-name">EMCC — European Mentoring & Coaching Council</div>
+              <div class="credential-body-sub">Global body with strong European roots · EIA levels</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#c4933f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="credential-levels" id="levels-emcc">
+            <span class="cred-level" data-body="EMCC" data-level="Foundation">Foundation</span>
+            <span class="cred-level" data-body="EMCC" data-level="Practitioner">Practitioner</span>
+            <span class="cred-level" data-body="EMCC" data-level="Senior Practitioner">Senior Practitioner</span>
+            <span class="cred-level" data-body="EMCC" data-level="Master Practitioner">Master Practitioner</span>
+          </div>
+        </div>
+
+        <div class="credential-body" id="cred-ac">
+          <div class="credential-body-header" onclick="toggleCred('ac')">
+            <div>
+              <div class="credential-body-name">AC — Association for Coaching</div>
+              <div class="credential-body-sub">7,000+ members globally · particularly recognised in the UK</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#c4933f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="credential-levels" id="levels-ac">
+            <span class="cred-level" data-body="AC" data-level="Member">Member</span>
+            <span class="cred-level" data-body="AC" data-level="Accredited Coach">Accredited Coach</span>
+            <span class="cred-level" data-body="AC" data-level="Senior Accredited Coach">Senior Accredited Coach</span>
+            <span class="cred-level" data-body="AC" data-level="Master Coach">Master Coach</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field" id="credDocField" style="display:none;">
+        <label>Upload your credential certificate <span class="req">*</span> <span class="hint">— PDF, JPG or PNG</span></label>
+        <div class="doc-upload" id="credDocUpload">
+          <input type="file" id="credDocFile" accept=".pdf,.jpg,.jpeg,.png" />
+          <p><strong>Click to upload</strong> your certificate<br>PDF, JPG or PNG · max 5MB</p>
+        </div>
+        <p class="doc-upload-name" id="credDocName"></p>
+      </div>
+
+      <div class="field">
+        <label>Other certifications <span class="hint">— optional, free text</span></label>
+        <input type="text" id="background" placeholder="e.g. M.Div, NLP Practitioner, 200hr Yoga Teacher..." />
+      </div>
+
+      <!-- lil' bird certification -->
+      <div class="lilbird-section">
+        <div class="lilbird-section-header">
+          <div class="lilbird-logo-sm">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 3C9 3 6.5 5 6 7.5C4.5 7.8 3 9 3 11c0 1.5 1 2.8 2.5 3.3C6 16.8 8.8 19 12 19s6-2.2 6.5-4.7C20 13.8 21 12.5 21 11c0-2-1.5-3.2-3-3.5C17.5 5 15 3 12 3z" fill="#f5e642"/></svg>
+          </div>
+          <h4>lil' bird certified</h4>
+        </div>
+        <p>lil' bird certified coaches have gone through an additional approval process with Luke directly. It's not about credentials — it's about fit, philosophy, and the kind of coach you actually are. If you're interested in being considered, the next step is a conversation.</p>
+        <div class="lilbird-check-row">
+          <input type="checkbox" id="lilbirdInterest" onchange="toggleLilbirdCTA()" />
+          <label for="lilbirdInterest">I'm interested in becoming a lil' bird certified coach</label>
+        </div>
+        <div class="lilbird-cta" id="lilbirdCTA">
+          <p>The next step is a short call. Book a time below and we'll take it from there. There's no obligation — just a conversation.</p>
+          <a href="https://calendly.com/lilbirdlifecoaching/lil-bird-approval" target="_blank">Book your lil' bird call →</a>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" id="back-5"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> back</button>
+        <button class="btn-next" id="next-5">Review & submit <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-page" id="step-6">
       <h2 class="step-heading">Last step</h2>
       <p class="step-sub">Your profile will be reviewed before it goes live. We'll email you when it's published — usually within a few days.</p>
       <div id="review-summary" style="background:var(--paper);border-radius:14px;border:1px solid var(--warm-border);padding:1.5rem;margin-bottom:1.75rem;font-size:0.88rem;line-height:1.8;color:var(--slate);"></div>
@@ -266,7 +540,7 @@
         <input type="checkbox" id="agreeCheck" />
         <p>I confirm that the information I've submitted is accurate, that I'm a qualified and practicing coach or guide, and that I'm happy for my profile to be published on coachesandguides.com once approved.</p>
       </div>
-      <div class="form-nav"><button class="btn-back" id="back-5"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> back</button><button class="btn-submit" id="submitBtn">Submit my profile</button></div>
+      <div class="form-nav"><button class="btn-back" id="back-6"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> back</button><button class="btn-submit" id="submitBtn">Submit my profile</button></div>
     </div>
 
   </div>
@@ -285,7 +559,10 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRB7S9l49_lmkd
 let currentStep = 1;
 const selectedTags = { modality: [], interest: [] };
 let selectedAvailability = '';
+let selectedCredentials = []; // [{body, level}]
+let lilbirdInterested = false;
 
+// ── TAG PICKERS ──
 document.querySelectorAll('.pick-tag').forEach(tag => {
   tag.addEventListener('click', () => {
     const group = tag.dataset.group, value = tag.dataset.value;
@@ -301,6 +578,48 @@ document.querySelectorAll('.avail-pill').forEach(pill => {
     selectedAvailability = pill.dataset.value;
   });
 });
+
+// ── CREDENTIAL PICKER ──
+function toggleCred(body) {
+  const levels = document.getElementById('levels-' + body);
+  levels.classList.toggle('open');
+}
+
+document.querySelectorAll('.cred-level').forEach(level => {
+  level.addEventListener('click', () => {
+    const body = level.dataset.body;
+    const lvl = level.dataset.level;
+
+    // Only one level per body
+    document.querySelectorAll('.cred-level[data-body="' + body + '"]').forEach(l => l.classList.remove('selected'));
+    level.classList.add('selected');
+
+    // Update selectedCredentials
+    selectedCredentials = selectedCredentials.filter(c => c.body !== body);
+    selectedCredentials.push({ body, level: lvl });
+
+    // Show doc upload if any credential selected
+    document.getElementById('credDocField').style.display = selectedCredentials.length > 0 ? 'block' : 'none';
+  });
+});
+
+// ── CREDENTIAL DOC UPLOAD ──
+document.getElementById('credDocFile').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  const nameEl = document.getElementById('credDocName');
+  nameEl.textContent = '✓ ' + file.name;
+  nameEl.style.display = 'block';
+});
+
+// ── LIL' BIRD CTA ──
+function toggleLilbirdCTA() {
+  lilbirdInterested = document.getElementById('lilbirdInterest').checked;
+  document.getElementById('lilbirdCTA').classList.toggle('visible', lilbirdInterested);
+}
+
+// ── CHAR COUNTS ──
+function setupCharCount(id, countId) {
 
 function setupCharCount(id, countId) {
   const ta = document.getElementById(id), ct = document.getElementById(countId), max = parseInt(ta.getAttribute('maxlength'));
@@ -357,25 +676,31 @@ function goBack(n) {
 document.getElementById('next-1').addEventListener('click', () => { if (validate(1)) goToStep(2); });
 document.getElementById('next-2').addEventListener('click', () => { if (validate(2)) goToStep(3); });
 document.getElementById('next-3').addEventListener('click', () => { if (validate(3)) goToStep(4); });
-document.getElementById('next-4').addEventListener('click', () => { buildReview(); goToStep(5); });
+document.getElementById('next-4').addEventListener('click', () => { goToStep(5); });
+document.getElementById('next-5').addEventListener('click', () => { buildReview(); goToStep(6); });
 document.getElementById('back-2').addEventListener('click', () => goBack(1));
 document.getElementById('back-3').addEventListener('click', () => goBack(2));
 document.getElementById('back-4').addEventListener('click', () => goBack(3));
 document.getElementById('back-5').addEventListener('click', () => goBack(4));
+document.getElementById('back-6').addEventListener('click', () => goBack(5));
 
 function buildReview() {
   const fn = document.getElementById('firstName').value.trim(), ln = document.getElementById('lastName').value.trim();
   const bio = document.getElementById('bio').value.trim(), booking = document.getElementById('bookingLink').value.trim();
+  const credText = selectedCredentials.length > 0 ? selectedCredentials.map(c => c.body + ' · ' + c.level).join(', ') : '—';
   document.getElementById('review-summary').innerHTML = `
     <div style="margin-bottom:0.75rem"><strong style="color:var(--ink)">${fn} ${ln}</strong> &mdash; ${document.getElementById('coachTitle').value.trim()}</div>
     <div style="color:var(--ink-muted);font-size:0.82rem;margin-bottom:0.5rem">${document.getElementById('email').value.trim()}${document.getElementById('location').value.trim() ? ' · ' + document.getElementById('location').value.trim() : ''}</div>
     <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">availability</div>
     <div style="font-size:0.83rem">${selectedAvailability || '—'}</div>
-    ${booking ? `<div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">booking link</div><div style="font-size:0.83rem">${booking}</div>` : ''}
-    <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">type of work</div>
+    ${booking ? '<div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:\'Caveat\',cursive;font-size:0.95rem">booking link</div><div style="font-size:0.83rem">' + booking + '</div>' : ''}
+    <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">area of focus</div>
     <div style="font-size:0.83rem">${selectedTags.modality.join(', ') || '—'}</div>
     <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">who you're for</div>
     <div style="font-size:0.83rem">${selectedTags.interest.join(', ') || '—'}</div>
+    <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">credentials</div>
+    <div style="font-size:0.83rem">${credText}</div>
+    ${lilbirdInterested ? '<div style="margin:0.75rem 0 0.3rem;color:#ffaa5a;font-family:\'Caveat\',cursive;font-size:0.95rem">lil\' bird certification</div><div style="font-size:0.83rem">Interested — call to be booked</div>' : ''}
     <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">bio preview</div>
     <div style="font-size:0.83rem;color:var(--slate)">${bio.slice(0,160)}${bio.length > 160 ? '…' : ''}</div>`;
 }
@@ -385,6 +710,18 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
   const photoFile = document.getElementById('photoFile').files[0];
   let photoBase64 = '';
   if (photoFile) { photoBase64 = await new Promise(res => { const r = new FileReader(); r.onload = e => res(e.target.result.split(',')[1]); r.readAsDataURL(photoFile); }); }
+  const credDocFile = document.getElementById('credDocFile').files[0];
+  let credDocBase64 = '';
+  let credDocName = '';
+  if (credDocFile) {
+    credDocBase64 = await new Promise(res => {
+      const r = new FileReader();
+      r.onload = e => res(e.target.result.split(',')[1]);
+      r.readAsDataURL(credDocFile);
+    });
+    credDocName = credDocFile.name;
+  }
+
   const payload = {
     firstName: document.getElementById('firstName').value.trim(), lastName: document.getElementById('lastName').value.trim(),
     email: document.getElementById('email').value.trim(), title: document.getElementById('coachTitle').value.trim(),
@@ -396,7 +733,12 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
     bookingLink: document.getElementById('bookingLink').value.trim(), website: document.getElementById('website').value.trim(),
     linkedin: document.getElementById('linkedin').value.trim(), instagram: document.getElementById('instagram').value.trim(),
     availability: selectedAvailability, modalityTags: selectedTags.modality.join(', '),
-    interestTags: selectedTags.interest.join(', '), photoBase64, photoName: photoFile ? photoFile.name : '',
+    interestTags: selectedTags.interest.join(', '),
+    credentials: selectedCredentials.map(c => c.body + ' ' + c.level).join(', '),
+    lilbirdInterested: lilbirdInterested ? 'Yes' : 'No',
+    credDocBase64: credDocBase64,
+    credDocName: credDocName,
+    photoBase64, photoName: photoFile ? photoFile.name : '',
     submittedAt: new Date().toISOString()
   };
   document.getElementById('submittingOverlay').classList.add('active');
