@@ -620,8 +620,6 @@ function toggleLilbirdCTA() {
 
 // ── CHAR COUNTS ──
 function setupCharCount(id, countId) {
-
-function setupCharCount(id, countId) {
   const ta = document.getElementById(id), ct = document.getElementById(countId), max = parseInt(ta.getAttribute('maxlength'));
   ta.addEventListener('input', () => { const len = ta.value.length; ct.textContent = `${len} / ${max}`; ct.classList.toggle('warn', len > max * 0.85); });
 }
