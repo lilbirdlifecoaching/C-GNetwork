@@ -525,6 +525,25 @@
         </div>
       </div>
 
+      <!-- Orangery certified -->
+      <div class="lilbird-section" style="margin-top:1rem;background:#f4f0f8;border-color:#8b6db0;">
+        <div class="lilbird-section-header">
+          <div class="lilbird-logo-sm" style="background:#8b6db0;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="7" stroke="white" stroke-width="1.5"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="white"/></svg>
+          </div>
+          <h4 style="color:#5a3d8a;">orangery certified</h4>
+        </div>
+        <p>Orangery certified coaches are part of the wider Orangery.solutions ecosystem — a community serious about the craft of coaching, relational intelligence, and ongoing growth. If this resonates, we'd love to have a conversation.</p>
+        <div class="lilbird-check-row">
+          <input type="checkbox" id="orangeryInterest" onchange="toggleOrangeryCTA()" />
+          <label for="orangeryInterest">I'm interested in becoming an Orangery certified coach</label>
+        </div>
+        <div class="lilbird-cta" id="orangeryCTA" style="display:none;">
+          <p>The next step is a short call with the Orangery team. Book a time below — no obligation, just a conversation.</p>
+          <a href="https://calendly.com/orangery/30min" target="_blank" style="background:#8b6db0;">Book your Orangery call →</a>
+        </div>
+      </div>
+
       <div class="form-nav">
         <button class="btn-back" id="back-5"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> back</button>
         <button class="btn-next" id="next-5">Review & submit <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -561,6 +580,7 @@ const selectedTags = { modality: [], interest: [] };
 let selectedAvailability = '';
 let selectedCredentials = []; // [{body, level}]
 let lilbirdInterested = false;
+let orangeryInterested = false;
 
 // ── TAG PICKERS ──
 document.querySelectorAll('.pick-tag').forEach(tag => {
@@ -616,6 +636,12 @@ document.getElementById('credDocFile').addEventListener('change', function() {
 function toggleLilbirdCTA() {
   lilbirdInterested = document.getElementById('lilbirdInterest').checked;
   document.getElementById('lilbirdCTA').classList.toggle('visible', lilbirdInterested);
+}
+
+function toggleOrangeryCTA() {
+  orangeryInterested = document.getElementById('orangeryInterest').checked;
+  const cta = document.getElementById('orangeryCTA');
+  cta.style.display = orangeryInterested ? 'block' : 'none';
 }
 
 // ── CHAR COUNTS ──
@@ -699,6 +725,7 @@ function buildReview() {
     <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">credentials</div>
     <div style="font-size:0.83rem">${credText}</div>
     ${lilbirdInterested ? '<div style="margin:0.75rem 0 0.3rem;color:#ffaa5a;font-family:\'Caveat\',cursive;font-size:0.95rem">lil\' bird certification</div><div style="font-size:0.83rem">Interested — call to be booked</div>' : ''}
+    ${orangeryInterested ? '<div style="margin:0.75rem 0 0.3rem;color:#8b6db0;font-family:\'Caveat\',cursive;font-size:0.95rem">orangery certification</div><div style="font-size:0.83rem">Interested — call to be booked</div>' : ''}
     <div style="margin:0.75rem 0 0.3rem;color:var(--gold);font-family:'Caveat',cursive;font-size:0.95rem">bio preview</div>
     <div style="font-size:0.83rem;color:var(--slate)">${bio.slice(0,160)}${bio.length > 160 ? '…' : ''}</div>`;
 }
@@ -734,6 +761,7 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
     interestTags: selectedTags.interest.join(', '),
     credentials: selectedCredentials.map(c => c.body + ' ' + c.level).join(', '),
     lilbirdInterested: lilbirdInterested ? 'Yes' : 'No',
+    orangeryInterested: orangeryInterested ? 'Yes' : 'No',
     credDocBase64: credDocBase64,
     credDocName: credDocName,
     photoBase64, photoName: photoFile ? photoFile.name : '',
