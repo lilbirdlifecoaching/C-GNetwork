@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nobody Warned You About This — Coaches & Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e1d1b; --paper: #f7f4ee; --warm-mid: #e8e3d8;
+    --warm-border: #cfc9ba; --gold: #c4933f; --gold-light: #f0e3c8;
+    --ember: #c96b42; --slate: #4a5568; --ink-muted: #6b6560;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
+
+  .wrapper { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+  header { padding: 3rem 0 2rem; }
+  .brand-row { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .brand-link { color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .brand-link:hover { color: var(--gold); }
+  .brand-sep { color: var(--warm-border); }
+  .back-link { font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--ink-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; margin-bottom: 2.5rem; display: block; }
+  .back-link:hover { color: var(--gold); }
+
+  .article-tag { font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+
+  .article-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 300; color: var(--ink); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+
+  .article-subtitle { font-family: 'Fraunces', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--ink-muted); margin-bottom: 2rem; line-height: 1.5; }
+
+  .article-meta { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 0; border-top: 1px dashed var(--warm-border); border-bottom: 1px dashed var(--warm-border); margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .meta-author { font-size: 0.88rem; color: var(--ink-muted); font-weight: 300; }
+  .meta-author strong { display: block; color: var(--ink); font-weight: 500; font-size: 0.9rem; margin-bottom: 0.1rem; }
+  .meta-dot { color: var(--warm-border); }
+  .meta-tag { font-family: 'Caveat', cursive; font-size: 0.85rem; padding: 0.2rem 0.7rem; border-radius: 12px; background: var(--gold-light); color: var(--gold); border: 1px solid #e8ccaa; }
+
+  .article-body { font-size: 1.05rem; line-height: 1.85; color: var(--slate); font-weight: 300; }
+  .article-body p { margin-bottom: 1.5rem; }
+  .article-body p:first-child { font-family: 'Fraunces', serif; font-size: 1.15rem; font-style: italic; color: var(--ink); font-weight: 300; }
+  .article-body em { font-style: italic; color: var(--ink); }
+
+  .article-body .pullquote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 1.35rem; color: var(--ink); line-height: 1.5; border-left: 3px solid var(--gold); padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0; }
+
+  .article-body .invite { background: white; border: 1px solid var(--warm-border); border-radius: 14px; padding: 1.5rem 1.75rem; margin: 2rem 0; }
+  .article-body .invite-label { font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+  .article-body .invite p { margin-bottom: 0; font-size: 0.95rem; }
+
+  .article-sign-off { border-top: 1px dashed var(--warm-border); padding-top: 1.5rem; margin-top: 1rem; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; color: var(--ink-muted); font-size: 1rem; }
+
+  .article-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--warm-border); }
+  .article-footer-label { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 1.25rem; display: block; }
+
+  .cta-bar { background: var(--ink); border-radius: 14px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .cta-bar p { font-size: 0.9rem; color: var(--warm-border); font-weight: 300; }
+  .cta-bar p strong { display: block; color: white; font-weight: 500; margin-bottom: 0.2rem; }
+  .cta-btn { background: var(--gold); color: white; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 0.6rem 1.4rem; border-radius: 30px; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+  .cta-btn:hover { background: var(--ember); }
+
+  .back-to-resources { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--ink-muted); text-decoration: none; margin-top: 1.5rem; transition: color 0.2s; }
+  .back-to-resources:hover { color: var(--gold); }
+
+  footer { text-align: center; padding: 2rem; font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--warm-border); position: relative; z-index: 1; }
+
+  @media (max-width: 560px) { .wrapper { padding: 0 1rem 4rem; } .article-title { font-size: 1.8rem; } }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="brand-row">
+      powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> <span class="brand-sep">·</span> <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a>
+    </div>
+    <a href="resources.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to resources
+    </a>
+
+    <span class="article-tag">for the new coach · first year</span>
+    <h1 class="article-title">Nobody Warned You About This</h1>
+    <p class="article-subtitle">what no one tells you in your first year of coaching</p>
+
+    <div class="article-meta">
+      <div class="meta-author">
+        <strong>Luke Haythorpe</strong>
+        Coaches & Guides Network
+      </div>
+      <span class="meta-dot">·</span>
+      <span class="meta-tag">new coach</span>
+      <span class="meta-tag">first year</span>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <p>The promises hit before the doubt does.</p>
+
+    <p>"Earn $40k in your first three months." "My blueprint made me $20k a month." "I've helped over a thousand coaches reach six figures." You made the decision to step into coaching, and within days — maybe hours — the internet decided it knew exactly what you needed. Course after course. Community after community. Each one promising that the gap between where you are and where you want to be is really just a funnel away.</p>
+
+    <p>So you invest. You follow the steps. You do the work. And somewhere between the hustle and the hope, a quieter thought starts to surface. One you don't say out loud, because saying it out loud feels like failure. <em>Who comes after this client when it ends?</em></p>
+
+    <p>Nobody warned you about that question. Nobody put it in their highlight reel.</p>
+
+    <p>Here is the thing about people who are wired to care deeply about others — and if you felt called to coaching, there is a good chance you are one of them. You are brilliant at holding space for someone else's struggle. You notice what others miss. You ask the question that shifts everything. You carry people with you, sometimes long after the session ends. That is not a small thing. That is a rare and beautiful thing, and the world genuinely needs it.</p>
+
+    <p>But that same wiring — the one that makes you so good at seeing others — can make it surprisingly hard to see yourself. To ask for what you need. To admit that you are struggling. To reach out and say, honestly, <em>I don't know what I'm doing and I need help.</em></p>
+
+    <p>The coaches who shout loudest about their success rarely talk about the season before it. The three-in-the-morning uncertainty. The client who cancelled and the invoice that didn't come. The moment they nearly quit and didn't — not because of a blueprint, but because someone who genuinely cared for them said something real and steady at exactly the right time.</p>
+
+    <p>Think about what it felt like the last time someone truly saw you. Not your output, not your potential, not your follower count. You. When did someone last ask how <em>you</em> were doing and actually wait for the answer? Most coaches in their first year are so focused on being present for others that they quietly neglect to apply any of that care to themselves.</p>
+
+    <div class="pullquote">You give and give and give, and somewhere along the way you forget that you cannot give what you don't have.</div>
+
+    <p>The irony is almost painful. You believe in coaching. You have staked your livelihood on it. You would tell any client sitting across from you that trying to do it alone is one of the most common and costly mistakes people make. And yet there you are. Shouldering everything. Telling yourself it will get easier. Staying quiet about the part that is actually hard.</p>
+
+    <p>This is not a character flaw. It is a tendency, and a very human one. But it is worth naming, because it is exactly where growth begins.</p>
+
+    <p>The work of coaching is more than the coaching itself. There is the craft, yes, but there is also the ecosystem around it — the clarity about who you serve and how, the processes that create consistency, the moments where you need someone to see your blind spots before they become your stumbling blocks. Trying to build all of that alone, while also managing the noise of a thousand people online selling you their version of success, is genuinely hard. Admitting that is not weakness. It is honesty. And honesty is usually where things start to shift.</p>
+
+    <p>There are people on the other side of this who need you. Not a polished, perfected, blueprint-following version of you. The real one. The one who has sat with uncertainty and kept going. That person has something to offer that no course can manufacture. But they need to still be standing, still be well, still have something left to give.</p>
+
+    <p>So here is the one thing nobody said clearly enough in your first year: find someone trustworthy and ask them for help. A coach. A mentor. A community that is genuinely invested in you — not just your metrics. You know better than most that asking for help is not giving up. It is the most courageous and self-aware thing a person can do.</p>
+
+    <div class="invite">
+      <span class="invite-label">reflect on this</span>
+      <p>Where in your coaching life are you currently trying to do alone what you would never ask a client to carry by themselves? Name it honestly. Then ask yourself who the right person is to help you carry it — and reach out to them this week.</p>
+    </div>
+
+    <p>You have something in you that got you here. The desire to help people grow, to ask better questions, to hold space for someone when no one else will. That does not disappear because the first year is hard.</p>
+
+    <p>It is still there. And so are the people waiting for you to find your footing.</p>
+
+    <p>You've got this — and you don't have to figure it out alone.</p>
+
+    <div class="article-sign-off">With you,<br>Luke</div>
+  </div>
+
+  <div class="article-footer">
+    <span class="article-footer-label">you don't have to do it alone</span>
+    <div class="cta-bar">
+      <p><strong>join the coaches & guides network</strong>A community that's genuinely invested in you — not just your metrics.</p>
+      <a href="https://coachesandguides.network" class="cta-btn">apply to join →</a>
+    </div>
+    <a href="resources.html" class="back-to-resources">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to all resources
+    </a>
+  </div>
+</div>
+
+<footer>Coaches & Guides Network · powering lil' bird & orangery.solutions</footer>
+</body>
+</html>
