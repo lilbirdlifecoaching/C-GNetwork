@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lie I Told Myself About Keeping My Options Open — Coaches & Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e1d1b; --paper: #f7f4ee; --warm-mid: #e8e3d8;
+    --warm-border: #cfc9ba; --gold: #c4933f; --gold-light: #f0e3c8;
+    --ember: #c96b42; --slate: #4a5568; --ink-muted: #6b6560;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
+
+  .wrapper { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+  header { padding: 3rem 0 2rem; }
+  .brand-row { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .brand-link { color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .brand-link:hover { color: var(--gold); }
+  .brand-sep { color: var(--warm-border); }
+
+  .back-link {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  .article-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .article-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-subtitle {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 1px dashed var(--warm-border);
+    border-bottom: 1px dashed var(--warm-border);
+    margin-bottom: 2.5rem;
+  }
+
+  .meta-author {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    font-weight: 300;
+  }
+
+  .meta-author strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .meta-dot { color: var(--warm-border); }
+
+  .meta-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 12px;
+    background: var(--gold-light);
+    color: var(--gold);
+    border: 1px solid #e8ccaa;
+  }
+
+  /* Article body */
+  .article-body { font-size: 1.05rem; line-height: 1.85; color: var(--slate); font-weight: 300; }
+
+  .article-body p { margin-bottom: 1.5rem; }
+
+  .article-body p:first-child {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  .article-body .pullquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: var(--ink);
+    line-height: 1.5;
+    border-left: 3px solid var(--gold);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .article-body .invite {
+    background: white;
+    border: 1px solid var(--warm-border);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+  }
+
+  .article-body .invite-label {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .article-body .invite p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  .article-sign-off {
+    border-top: 1px dashed var(--warm-border);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-muted);
+    font-size: 1rem;
+  }
+
+  /* Related / CTA */
+  .article-footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--warm-border);
+  }
+
+  .article-footer-label {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .cta-bar {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-bar p { font-size: 0.9rem; color: var(--warm-border); font-weight: 300; }
+  .cta-bar p strong { display: block; color: white; font-weight: 500; margin-bottom: 0.2rem; }
+
+  .cta-btn {
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover { background: var(--ember); }
+
+  .back-to-resources {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: color 0.2s;
+  }
+  .back-to-resources:hover { color: var(--gold); }
+
+  footer { text-align: center; padding: 2rem; font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--warm-border); position: relative; z-index: 1; }
+
+  @media (max-width: 560px) { .wrapper { padding: 0 1rem 4rem; } .article-title { font-size: 1.8rem; } }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="brand-row">
+      powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> <span class="brand-sep">·</span> <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a>
+    </div>
+    <a href="resources.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to resources
+    </a>
+
+    <span class="article-tag">for the new coach · connector type</span>
+    <h1 class="article-title">The Lie I Told Myself About Keeping My Options Open</h1>
+    <p class="article-subtitle">for the coach who's still figuring out where to plant their flag</p>
+
+    <div class="article-meta">
+      <div class="meta-author">
+        <strong>Orangery</strong>
+        Coaches & Guides Network
+      </div>
+      <span class="meta-dot">·</span>
+      <span class="meta-tag">new coach</span>
+      <span class="meta-tag">connector</span>
+    </div>
+  </header>
+
+  <div class="article-body">
+    <p>I'm writing this from my mum's place.</p>
+
+    <p>That sentence sat in my notes for a while before I knew what to do with it. There's something in it, though. Something about where we find ourselves when the things we've been building aren't quite building the way we hoped. Something about the kind of honest that only comes when you're back somewhere familiar, somewhere quiet, somewhere that strips away the performance.</p>
+
+    <p>If you've ever found yourself at a wall, you'll know the feeling I'm describing. Not the dramatic kind of crisis. The kind where you're still functioning, still making lists, still telling people you're fine, but somewhere underneath it all, there's a weight. And the weight doesn't lift.</p>
+
+    <p>Here's what I want to say before anything else: if you lead as a Connector — if your default is warmth and relationship and the deep satisfaction of bringing people together — you carry a particular kind of genius that most people underestimate. You see potential in humans the way other people see it in spreadsheets. You walk into a room and notice who's not included. You hold threads that nobody else even knew were loose. That is not nothing. That is rare.</p>
+
+    <p>But the shadow side of that gift — the one that rarely gets named with any kindness — is this: the same instinct that makes you brilliant with people can make you deeply, quietly afraid of choosing.</p>
+
+    <p>When your strength is connection, narrowing feels like loss. If you commit to this kind of person, what happens to all the others you could have helped? If you plant your flag here, what about every other possibility you'll never now explore? You've built an identity around being someone who sees potential everywhere — and it's not ego exactly, it's more like a fear dressed in generosity. What if the door I close was the best one?</p>
+
+    <p>So you keep your options open. You frame it as flexibility. You tell yourself you serve people across many ages, many needs, many contexts, which is true. You're genuinely adaptable, genuinely multi-gifted. But if you're honest — the way you might have been honest at your mum's kitchen table with nowhere else to be — you haven't actually done all you can. Because doing all you can would require a kind of choosing that terrifies you.</p>
+
+    <p>There's a person I think of when I sit with this. Gifted, warm, the kind of coach who could make anyone feel seen in five minutes. When you asked what they did, they'd say, "it depends." Because it really did depend. And because some part of them believed that to commit to one answer was to make themselves smaller. The work was fine, but it never quite gained traction. Not because they lacked ability. Because nobody could find them.</p>
+
+    <div class="pullquote">You cannot be found if you haven't decided where you are.</div>
+
+    <p>The lie isn't that you're flexible. The lie is that flexibility is protecting you. It isn't. It's protecting something older, something more tender, something that has more to do with your confidence than your calling.</p>
+
+    <p>Because here's what narrowing actually requires: it asks you to trust that who you are is enough for the person you're saying yes to. It asks you to believe that your specific experience, your specific warmth, your specific way of seeing people, is genuinely valuable — not as a broad abstraction, but as a real offer to a real human with a real need. That's a different kind of courage than keeping all your doors open.</p>
+
+    <p>When you imagine doing that — when you picture naming the person you serve and saying this is who I'm for — something rises up. Maybe it feels like hopelessness. Maybe it feels like the threat of tears you're not sure you're allowed to shed. Maybe it feels like standing at the edge of something and not quite being able to jump. That feeling isn't weakness. That feeling is the exact place where real growth lives — not in moving past it quickly, not in pivoting straight to action, but in being willing to sit inside it long enough to hear what it's actually saying.</p>
+
+    <p>The question worth asking is not what's my niche. The question is what do I actually want, and am I brave enough to choose it?</p>
+
+    <div class="invite">
+      <span class="invite-label">try this</span>
+      <p>Write down five people you have genuinely loved working with. Not the most impressive. Not the best story. The ones where, when they succeeded, something in you lit up. Look at who they are, what they needed, and what you gave them. Notice what's there. The pattern that emerges is closer to your real offer than any positioning statement you could craft. Start there.</p>
+    </div>
+
+    <p>You don't have to have it all figured out. You just have to be honest enough to begin.</p>
+
+    <p>That honesty is the bravest thing you can bring. Not the framework, not the strategy, not the pivot. Just the willingness to look clearly at yourself, name what you want, and take one real step toward it.</p>
+
+    <p>That step is available to you. Right now. Exactly where you are.</p>
+
+    <div class="article-sign-off">With you in it,<br>Orangery</div>
+  </div>
+
+  <div class="article-footer">
+    <span class="article-footer-label">ready to take that step?</span>
+    <div class="cta-bar">
+      <p><strong>join the coaches & guides network</strong>List your profile and get in front of the people who need exactly what you offer.</p>
+      <a href="https://coachesandguides.network" class="cta-btn">apply to join →</a>
+    </div>
+    <a href="resources.html" class="back-to-resources">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to all resources
+    </a>
+  </div>
+</div>
+
+<footer>Coaches & Guides Network · powering lil' bird & orangery.solutions</footer>
+</body>
+</html>

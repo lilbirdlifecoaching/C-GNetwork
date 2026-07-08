@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources for Coaches — Coaches & Guides Network</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASS...">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e1d1b; --paper: #f7f4ee; --warm-mid: #e8e3d8;
+    --warm-border: #cfc9ba; --gold: #c4933f; --gold-light: #f0e3c8;
+    --ember: #c96b42; --slate: #4a5568; --ink-muted: #6b6560;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
+  .wrapper { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+  header { padding: 3rem 0 2.5rem; }
+  .brand-row { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .brand-link { color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .brand-link:hover { color: var(--gold); }
+  .brand-sep { color: var(--warm-border); }
+  .back-link { font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--ink-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; margin-bottom: 2rem; display: block; }
+  .back-link:hover { color: var(--gold); }
+
+  h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.2; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .sub { font-size: 1rem; color: var(--ink-muted); font-weight: 300; line-height: 1.65; max-width: 480px; margin-bottom: 3rem; }
+
+  .section-label { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 1.25rem; display: block; }
+
+  .article-card {
+    background: white;
+    border: 1px solid var(--warm-border);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+    display: block;
+    transition: all 0.22s;
+  }
+  .article-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+  .article-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .article-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+  }
+
+  .article-sub {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .article-excerpt {
+    font-size: 0.88rem;
+    color: var(--slate);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .article-read-more {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .coming-soon {
+    background: var(--warm-mid);
+    border: 1px dashed var(--warm-border);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.25rem;
+    opacity: 0.7;
+  }
+
+  .coming-soon .article-title { color: var(--ink-muted); }
+
+  .coming-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    background: var(--warm-border);
+    padding: 0.15rem 0.6rem;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  .join-bar {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .join-bar p { font-size: 0.9rem; color: var(--warm-border); font-weight: 300; }
+  .join-bar p strong { display: block; color: white; font-weight: 500; margin-bottom: 0.2rem; font-size: 0.95rem; }
+
+  .join-btn {
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .join-btn:hover { background: var(--ember); }
+
+  footer { text-align: center; padding: 2rem; font-family: 'Caveat', cursive; font-size: 0.95rem; color: var(--warm-border); position: relative; z-index: 1; }
+
+  @media (max-width: 560px) { .wrapper { padding: 0 1rem 4rem; } .article-card { padding: 1.25rem; } }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="brand-row">
+      powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> <span class="brand-sep">·</span> <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a>
+    </div>
+    <a href="https://coachesandguides.network" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to join the network
+    </a>
+    <h1>resources for the <em>coach</em></h1>
+    <p class="sub">Honest writing for coaches who are serious about their craft — and honest enough to keep growing in it.</p>
+  </header>
+
+  <span class="section-label">articles</span>
+
+  <a href="article-connector-coach.html" class="article-card">
+    <span class="article-tag">for the new coach · connector type</span>
+    <div class="article-title">The Lie I Told Myself About Keeping My Options Open</div>
+    <div class="article-sub">for the coach who's still figuring out where to plant their flag</div>
+    <p class="article-excerpt">If your default is warmth and relationship and the deep satisfaction of bringing people together, you carry a particular kind of genius that most people underestimate. But the shadow side of that gift is this: the same instinct that makes you brilliant with people can make you deeply, quietly afraid of choosing.</p>
+    <span class="article-read-more">read the article →</span>
+  </a>
+
+  <div class="coming-soon">
+    <span class="article-tag" style="color:var(--ink-muted);">for the new coach</span>
+    <div class="article-title">What No One Tells You About Your First Year</div>
+    <span class="coming-tag">coming soon</span>
+  </div>
+
+  <div class="coming-soon">
+    <span class="article-tag" style="color:var(--ink-muted);">pricing & value</span>
+    <div class="article-title">Why Charging Less Doesn't Make You More Accessible</div>
+    <span class="coming-tag">coming soon</span>
+  </div>
+
+  <div class="coming-soon">
+    <span class="article-tag" style="color:var(--ink-muted);">craft</span>
+    <div class="article-title">The Question That Changes Everything</div>
+    <span class="coming-tag">coming soon</span>
+  </div>
+
+  <div class="join-bar">
+    <p><strong>ready to join the network?</strong>Apply to list your profile on coachesandguides.com</p>
+    <a href="https://coachesandguides.network" class="join-btn">join the network →</a>
+  </div>
+</div>
+
+<footer>Coaches & Guides Network · powering lil' bird & orangery.solutions</footer>
+</body>
+</html>
