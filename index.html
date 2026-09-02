@@ -321,7 +321,7 @@
           <input type="file" id="photoFile" accept="image/*" />
           <img class="photo-preview" id="photoPreview" alt="Preview" />
           <span class="upload-icon">☁</span>
-          <p><strong>Click to upload</strong> or drag a photo here<br>Square crops work best · JPG or PNG</p>
+          <p><strong>Click to upload</strong> or drag a photo here<br>Square crops work best · JPG or PNG · max 500KB</p>
         </div>
       </div>
       <div class="form-nav"><span></span><button class="btn-next" id="next-1">Next — your work <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
@@ -657,6 +657,16 @@ setupCharCount('different', 'different-count');
 
 document.getElementById('photoFile').addEventListener('change', function() {
   const file = this.files[0]; if (!file) return;
+
+  // Max 500KB
+  if (file.size > 500 * 1024) {
+    this.value = '';
+    document.getElementById('photoPreview').style.display = 'none';
+    document.querySelector('#photoUpload .upload-icon').style.display = 'block';
+    document.querySelector('#photoUpload p').innerHTML = '<strong style="color:var(--ember)">Photo too large</strong><br>Please resize to under 500KB and try again.<br><span style="font-size:0.78rem;display:block;margin-top:0.3rem;">Free tool: <a href="https://squoosh.app" target="_blank" style="color:var(--gold)">squoosh.app</a></span>';
+    return;
+  }
+
   const reader = new FileReader();
   reader.onload = e => { const p = document.getElementById('photoPreview'); p.src = e.target.result; p.style.display = 'block'; document.querySelector('#photoUpload .upload-icon').style.display = 'none'; document.querySelector('#photoUpload p').textContent = file.name; };
   reader.readAsDataURL(file);
