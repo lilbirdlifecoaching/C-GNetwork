@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>admin · coaches & guides</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e1d1b; --paper: #f7f4ee; --warm-mid: #e8e3d8; --warm-border: #cfc9ba;
+    --gold: #c4933f; --gold-light: #f0e3c8; --ember: #c96b42; --slate: #4a5568;
+    --ink-muted: #6b6560; --tag-bg: #f0ece3; --tag-border: #d4ccba;
+    --success: #3a7a45; --success-bg: #edf5ee; --card: #fffdf9;
+    --lilbird: #e0a400; --orangery: #8b6db0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 14.5px; line-height: 1.5; }
+  a { color: var(--gold); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+  .brand-row { font-family: 'Caveat', cursive; font-size: 1.05rem; color: var(--ink-muted); }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 2.2rem; letter-spacing: -0.02em; line-height: 1.15; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hidden { display: none !important; }
+
+  .card { background: var(--card); border: 1px solid var(--warm-mid); border-radius: 16px; padding: 1.5rem; }
+  .field { margin-bottom: 0.95rem; }
+  .field label { display: block; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .hint { color: var(--ink-muted); font-weight: 300; }
+  input[type=text], input[type=email], input[type=url], input[type=date], input[type=time], input[type=number], input[type=search], select, textarea {
+    width: 100%; padding: 0.6rem 0.8rem; border: 1.5px solid var(--warm-border); border-radius: 9px;
+    background: var(--paper); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink);
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); background: #fff; }
+  textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.9rem; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 0.9rem; }
+  .count { text-align: right; font-size: 0.72rem; color: var(--ink-muted); margin-top: 0.15rem; }
+  .count.over { color: var(--ember); }
+  .group-label { font-family: 'Caveat', cursive; font-size: 0.98rem; color: var(--ink-muted); display: block; margin: 0.6rem 0 0.35rem; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 400; margin: 1.4rem 0 0.7rem; padding-top: 1.1rem; border-top: 1px solid var(--warm-mid); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip { font-size: 0.78rem; padding: 0.26rem 0.7rem; border-radius: 20px; border: 1.5px solid var(--tag-border); background: var(--tag-bg); cursor: pointer; user-select: none; }
+  .chip:hover { border-color: var(--gold); }
+  .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .btn { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; font-weight: 500; border: none; border-radius: 30px; padding: 0.6rem 1.3rem; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
+  .btn-dark { background: var(--ink); color: #fff; } .btn-dark:hover { background: #3a3835; }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-ghost { background: none; color: var(--ink-muted); border: 1.5px solid var(--warm-border); }
+  .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+  .btn-danger { background: none; color: var(--ember); border: 1.5px solid #e8c4b4; }
+  .btn-danger:hover { background: #fbeee8; }
+  .btn-sm { padding: 0.35rem 0.85rem; font-size: 0.78rem; }
+  .btn:disabled { opacity: .55; cursor: default; }
+  .link-btn { background: none; border: none; font-family: 'Caveat', cursive; font-size: 1.05rem; color: var(--ink-muted); cursor: pointer; }
+  .link-btn:hover { color: var(--ink); }
+
+  /* sign in */
+  .signin { max-width: 420px; margin-top: 1.5rem; }
+  .code-input { font-size: 1.5rem !important; letter-spacing: 0.5em; text-align: center; font-family: 'Fraunces', serif !important; }
+  .msg { font-size: 0.85rem; margin-top: 0.7rem; min-height: 1.2em; }
+  .msg.err { color: var(--ember); } .msg.ok { color: var(--success); }
+
+  /* header */
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin: 0.6rem 0 1.4rem; }
+  .tabs { display: flex; gap: 0.3rem; background: var(--warm-mid); padding: 0.25rem; border-radius: 30px; }
+  .tab { border: none; background: none; padding: 0.45rem 1.1rem; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; cursor: pointer; color: var(--ink-muted); }
+  .tab.on { background: var(--card); color: var(--ink); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin-bottom: 1.2rem; }
+  .stat { background: var(--card); border: 1px solid var(--warm-mid); border-radius: 14px; padding: 0.85rem 1rem; cursor: pointer; transition: border-color .15s; }
+  .stat:hover, .stat.on { border-color: var(--gold); }
+  .stat .n { font-family: 'Fraunces', serif; font-size: 1.7rem; line-height: 1.1; }
+  .stat .l { font-size: 0.76rem; color: var(--ink-muted); }
+  @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } .row, .row3 { grid-template-columns: 1fr; } }
+
+  .toolbar { display: flex; gap: 0.7rem; margin-bottom: 0.9rem; align-items: center; flex-wrap: wrap; }
+  .toolbar input[type=search] { max-width: 340px; background: var(--card); }
+  .toolbar select { width: auto; background: var(--card); }
+
+  /* coach list */
+  .list { background: var(--card); border: 1px solid var(--warm-mid); border-radius: 16px; overflow: hidden; }
+  .crow { display: grid; grid-template-columns: 44px minmax(0, 2.2fr) minmax(0, 1.6fr) 90px 230px; gap: 0.9rem; align-items: center; padding: 0.7rem 1rem; border-top: 1px solid var(--warm-mid); cursor: pointer; }
+  .crow:first-child { border-top: none; }
+  .crow:hover { background: #fbf8f2; }
+  .thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; object-position: top; background: var(--gold-light); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; color: var(--gold); overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .cname { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ctitle, .cmail { font-size: 0.8rem; color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cdate { font-size: 0.78rem; color: var(--ink-muted); }
+  .flags { display: flex; gap: 0.35rem; justify-content: flex-end; flex-wrap: wrap; }
+  .flag { font-size: 0.72rem; font-weight: 500; padding: 0.22rem 0.6rem; border-radius: 12px; border: 1.5px solid var(--warm-border); background: none; cursor: pointer; color: var(--ink-muted); font-family: 'DM Sans', sans-serif; }
+  .flag.live.on { background: var(--success); border-color: var(--success); color: #fff; }
+  .flag.lb.on { background: var(--lilbird); border-color: var(--lilbird); color: #fff; }
+  .flag.or.on { background: var(--orangery); border-color: var(--orangery); color: #fff; }
+  .flag.want { border-style: dashed; }
+  .flag.lb.want { border-color: var(--lilbird); color: #a47800; }
+  .flag.or.want { border-color: var(--orangery); color: var(--orangery); }
+  @media (max-width: 860px) {
+    .crow { grid-template-columns: 44px 1fr; }
+    .crow .c-mid, .crow .cdate { display: none; }
+    .crow .flags { grid-column: 1 / -1; justify-content: flex-start; }
+  }
+  .empty { text-align: center; color: var(--ink-muted); padding: 2.5rem 1rem; font-weight: 300; }
+  .empty .big { font-family: 'Caveat', cursive; font-size: 1.4rem; color: var(--ink); }
+
+  /* drawer */
+  .drawer-bg { position: fixed; inset: 0; background: rgba(30,29,27,.4); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 40; }
+  .drawer-bg.show { opacity: 1; pointer-events: auto; }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 100vw); background: var(--paper); z-index: 41; transform: translateX(100%); transition: transform .25s; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,.08); }
+  .drawer.show { transform: none; }
+  .drawer-head { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--warm-mid); display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--card); }
+  .drawer-head h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.3rem; }
+  .drawer-body { padding: 1.3rem 1.5rem; overflow-y: auto; flex: 1; }
+  .drawer-foot { padding: 0.9rem 1.5rem; border-top: 1px solid var(--warm-mid); display: flex; justify-content: space-between; gap: 0.6rem; background: var(--card); }
+  .x { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--ink-muted); line-height: 1; }
+  .photo-edit { display: flex; gap: 1.1rem; align-items: center; margin-bottom: 1rem; }
+  .photo-edit .thumb { width: 96px; height: 96px; border-radius: 14px; font-size: 1.8rem; }
+  .toggles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .toggle { display: flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; background: var(--card); border: 1.5px solid var(--warm-border); border-radius: 10px; padding: 0.45rem 0.75rem; cursor: pointer; user-select: none; }
+  .toggle input { accent-color: var(--gold); width: 15px; height: 15px; }
+  .meta-line { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 1rem; }
+
+  /* trainings */
+  .tcard { background: var(--card); border: 1px solid var(--warm-mid); border-radius: 16px; padding: 1.1rem 1.3rem; margin-bottom: 0.8rem; }
+  .thead { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; flex-wrap: wrap; }
+  .thead h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.15rem; }
+  .tmeta { font-size: 0.82rem; color: var(--ink-muted); }
+  .status { font-size: 0.72rem; font-weight: 500; padding: 0.18rem 0.6rem; border-radius: 12px; margin-left: 0.5rem; vertical-align: middle; }
+  .status.Open { background: var(--success-bg); color: var(--success); }
+  .status.Draft { background: var(--warm-mid); color: var(--ink-muted); }
+  .status.Closed { background: var(--gold-light); color: #8a6420; }
+  .status.Hidden { background: #eee; color: #999; }
+  .regs { margin-top: 0.9rem; border-top: 1px dashed var(--warm-border); padding-top: 0.7rem; }
+  .reg { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; padding: 0.35rem 0; font-size: 0.86rem; }
+  .reg.cancelled { color: var(--ink-muted); text-decoration: line-through; }
+  .bar { height: 6px; background: var(--warm-mid); border-radius: 4px; overflow: hidden; width: 140px; margin-top: 0.35rem; }
+  .bar div { height: 100%; background: var(--gold); }
+
+  /* cropper */
+  .modal-bg { position: fixed; inset: 0; background: rgba(30,29,27,.55); display: none; align-items: center; justify-content: center; z-index: 60; padding: 1rem; }
+  .modal-bg.show { display: flex; }
+  .modal { background: var(--card); border-radius: 20px; padding: 1.5rem; width: 100%; max-width: 380px; text-align: center; }
+  .modal h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.2rem; margin-bottom: .2rem; }
+  .modal p { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 1rem; }
+  .crop-view { width: 300px; height: 300px; max-width: 100%; margin: 0 auto; border-radius: 14px; overflow: hidden; touch-action: none; cursor: grab; background: var(--warm-mid); }
+  .crop-view canvas { display: block; width: 100%; height: 100%; }
+  .zoom { width: 100%; margin: 1rem 0; accent-color: var(--gold); }
+  .modal .btns { display: flex; justify-content: center; gap: 0.6rem; }
+
+  .toast { position: fixed; top: 1.2rem; left: 50%; transform: translate(-50%, -200%); opacity: 0; background: var(--ink); color: #fff; padding: 0.65rem 1.2rem; border-radius: 30px; font-size: 0.86rem; transition: transform .25s; z-index: 80; max-width: 90vw; text-align: center; }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; }
+  .toast.err { background: var(--ember); }
+  .loading { text-align: center; padding: 4rem 1rem; font-family: 'Caveat', cursive; font-size: 1.4rem; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand-row">coaches & guides · admin</div>
+
+  <!-- SIGN IN -->
+  <section id="signinView" class="hidden">
+    <h1 style="margin-top:.6rem">network <em>admin</em></h1>
+    <div class="card signin">
+      <div id="stepEmail">
+        <div class="field"><label for="email">Admin email</label><input type="email" id="email" autocomplete="email" placeholder="you@orangery.solutions"></div>
+        <button class="btn btn-dark" id="sendCodeBtn">Email me a code</button>
+      </div>
+      <div id="stepCode" class="hidden">
+        <div class="field"><label for="code">Code sent to <span id="sentTo"></span></label><input type="text" id="code" class="code-input" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="······"></div>
+        <button class="btn btn-dark" id="verifyBtn">Sign in</button>
+        <button class="link-btn" id="changeEmail" style="margin-left:.5rem">different email</button>
+      </div>
+      <p class="msg" id="signinMsg"></p>
+    </div>
+  </section>
+
+  <div id="loadingView" class="loading">loading the network…</div>
+
+  <!-- APP -->
+  <section id="appView" class="hidden">
+    <div class="top">
+      <h1>network <em>admin</em></h1>
+      <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+        <div class="tabs">
+          <button class="tab on" data-tab="coaches">coaches</button>
+          <button class="tab" data-tab="trainings">trainings</button>
+        </div>
+        <button class="link-btn" id="refreshBtn" title="Reload from the Sheet">↻ refresh</button>
+        <a class="link-btn" href="dashboard" style="text-decoration:none">my dashboard</a>
+        <button class="link-btn" id="signOutBtn">sign out</button>
+      </div>
+    </div>
+
+    <!-- COACHES -->
+    <div id="tab-coaches">
+      <div class="stats" id="stats"></div>
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Search name, email, title, tags…">
+        <select id="sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="name">Name A–Z</option>
+          <option value="updated">Recently updated</option>
+        </select>
+        <span id="resultCount" class="tmeta"></span>
+      </div>
+      <div class="list" id="coachList"></div>
+      <p class="tmeta" style="margin-top:.7rem">Tip: the <b>live</b>, <b>lil' bird</b> and <b>orangery</b> buttons save instantly. A dashed outline means the coach said they're interested in that certification.</p>
+    </div>
+
+    <!-- TRAININGS -->
+    <div id="tab-trainings" class="hidden">
+      <div class="toolbar" style="justify-content:space-between">
+        <select id="trFilter">
+          <option value="active">Upcoming & drafts</option>
+          <option value="past">Past</option>
+          <option value="all">Everything</option>
+        </select>
+        <button class="btn btn-dark" id="newTrainingBtn">+ New training</button>
+      </div>
+      <div id="trainingList"></div>
+    </div>
+  </section>
+</div>
+
+<!-- COACH / TRAINING DRAWER -->
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h2 id="drawerTitle"></h2><button class="x" id="drawerClose" aria-label="Close">×</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<div class="modal-bg" id="cropModal">
+  <div class="modal">
+    <h3>Position the photo</h3>
+    <p>Drag to move · slider to zoom</p>
+    <div class="crop-view" id="cropView"><canvas id="cropCanvas" width="600" height="600"></canvas></div>
+    <input type="range" class="zoom" id="cropZoom" min="1" max="4" step="0.01" value="1">
+    <div class="btns"><button class="btn btn-ghost" id="cropCancel">Cancel</button><button class="btn btn-dark" id="cropDone">Use this photo</button></div>
+  </div>
+</div>
+<input type="file" id="photoFile" accept="image/*" class="hidden">
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Paste your Apps Script web app URL here (same one the intake form uses) ──
+const API = 'https://script.google.com/macros/s/AKfycbxay87fiIVZ_9N2ACWdq33FOMUL72z4SjfUoEp3eFBMP2fIGo6Qx1ehXy32KW_ybsnU/exec';
+
+const TAGS = {
+  speciality: ['life','leadership','executive','career','business','spiritual','story','burnout','mindset','relationships','writing','creativity','health & wellness','parenting','communication','faith transition','trauma-informed','group work','grief','identity','purpose'],
+  format: ['in-person','virtual','intensives'],
+  interest: ["women's","men's",'mom life','fathering','teens','young adults','couples','family','midlife','seniors','LGBTQ+','people of faith','entrepreneurs','founders','creatives','athletes','educators','healthcare workers','nonprofit','ministry','expats','first-gen professionals','ADHD','AuDHD','Autism','music','tech','art','career transition'],
+};
+const OPTIONS = {
+  timezone: ['', 'Eastern (ET)','Central (CT)','Mountain (MT)','Pacific (PT)','GMT / UTC','CET (Europe)','AEST (Australia)','Other'],
+  experience: ['', 'Less than 1 year','1–3 years','3–5 years','5–10 years','10+ years'],
+  pricing: ['', 'Sliding scale / donation','Under $75 / session','$75–$150 / session','$150–$250 / session','$250–$400 / session','$400+ / session'],
+  availability: ['', 'Taking new clients','Limited availability','Waitlist only','Not currently taking clients'],
+  format: ['', 'Virtual','In-person','Hybrid'],
+  status: ['Draft','Open','Closed','Hidden'],
+};
+const COACH_TEXT = ['firstName','lastName','email','title','location','timezone','languages','bio','approach','different','background','experience','pricing','goodFor','bookingLink','website','linkedin','instagram','availability','credentials','modalityTags','interestTags','adminNotes'];
+const COACH_BOOL = ['approved','lilbird','orangery'];
+
+const $ = s => document.querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} },
+};
+let token = store.get('cg_admin_token');
+let data = { coaches: [], trainings: [] };
+let filter = 'all';
+
+async function api(action, body = {}) {
+  const res = await fetch(API, { method: 'POST', body: JSON.stringify(Object.assign({ action, token }, body)) });
+  const j = await res.json();
+  if (j.error === 'AUTH') { signOutLocal(); throw new Error('Your sign-in has expired — please sign in again.'); }
+  if (!j.ok) throw new Error(j.error || 'Something went wrong.');
+  return j;
+}
+function toast(msg, err) {
+  const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (err ? ' err' : '');
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.className = 'toast', 3200);
+}
+function show(id) { ['#signinView','#loadingView','#appView'].forEach(v => $(v).classList.toggle('hidden', v !== id)); }
+function initials(c) { return ((c.firstName || ' ')[0] + (c.lastName || ' ')[0]).toUpperCase().trim(); }
+function thumb(c, src) { const s = src || c.photo; return s ? `<img src="${esc(s)}" alt="" loading="lazy">` : esc(initials(c)); }
+function splitTags(s) { return String(s || '').split(',').map(x => x.trim()).filter(Boolean); }
+function fmtDay(iso) { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); }
+const yes = v => v === true || String(v).toLowerCase() === 'yes' || String(v).toUpperCase() === 'TRUE';
+
+// ── SIGN IN ───────────────────────────────────────────────
+let pendingEmail = '';
+$('#sendCodeBtn').onclick = async () => {
+  const email = $('#email').value.trim(), msg = $('#signinMsg'), b = $('#sendCodeBtn');
+  msg.className = 'msg'; msg.textContent = '';
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.className = 'msg err'; msg.textContent = 'Please enter a valid email.'; return; }
+  b.disabled = true; b.textContent = 'Sending…';
+  try {
+    await api('requestCode', { email, mode: 'admin' });
+    pendingEmail = email; $('#sentTo').textContent = email;
+    $('#stepEmail').classList.add('hidden'); $('#stepCode').classList.remove('hidden');
+    msg.className = 'msg ok'; msg.textContent = 'If that\'s an admin email, a code is on its way.';
+    $('#code').focus();
+  } catch (e) { msg.className = 'msg err'; msg.textContent = e.message; }
+  b.disabled = false; b.textContent = 'Email me a code';
+};
+$('#email').addEventListener('keydown', e => { if (e.key === 'Enter') $('#sendCodeBtn').click(); });
+$('#code').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6); if (e.target.value.length === 6) $('#verifyBtn').click(); });
+$('#verifyBtn').onclick = async () => {
+  const msg = $('#signinMsg'), b = $('#verifyBtn'); b.disabled = true; b.textContent = 'Checking…';
+  try {
+    const r = await api('verifyCode', { email: pendingEmail, code: $('#code').value });
+    if (!r.admin) throw new Error('This account doesn\'t have admin access.');
+    token = r.token; store.set('cg_admin_token', token); msg.textContent = '';
+    await load();
+  } catch (e) { msg.className = 'msg err'; msg.textContent = e.message; }
+  b.disabled = false; b.textContent = 'Sign in';
+};
+$('#changeEmail').onclick = () => { $('#stepCode').classList.add('hidden'); $('#stepEmail').classList.remove('hidden'); $('#code').value = ''; };
+function signOutLocal() { token = null; store.del('cg_admin_token'); closeDrawer(true); $('#stepCode').classList.add('hidden'); $('#stepEmail').classList.remove('hidden'); $('#code').value = ''; show('#signinView'); }
+$('#signOutBtn').onclick = () => { api('signOut').catch(() => {}); signOutLocal(); };
+
+// ── LOAD ──────────────────────────────────────────────────
+async function load(quiet) {
+  if (!quiet) show('#loadingView');
+  try {
+    const r = await api('adminData');
+    data = r; renderCoaches(); renderTrainings(); show('#appView');
+  } catch (e) { toast(e.message, true); if (!token) show('#signinView'); else if (!quiet) show('#signinView'); }
+}
+$('#refreshBtn').onclick = async () => { $('#refreshBtn').textContent = '↻ refreshing…'; await load(true); $('#refreshBtn').textContent = '↻ refresh'; toast('Up to date'); };
+
+$$('.tab').forEach(t => t.onclick = () => {
+  $$('.tab').forEach(x => x.classList.toggle('on', x === t));
+  $('#tab-coaches').classList.toggle('hidden', t.dataset.tab !== 'coaches');
+  $('#tab-trainings').classList.toggle('hidden', t.dataset.tab !== 'trainings');
+});
+
+// ── COACHES ───────────────────────────────────────────────
+const FILTERS = [
+  ['all', 'all coaches', () => true],
+  ['live', 'live', c => c.approved],
+  ['review', 'waiting for review', c => !c.approved],
+  ['lbwant', 'want lil\' bird', c => yes(c.lilbirdInterested) && !c.lilbird],
+  ['orwant', 'want orangery', c => yes(c.orangeryInterested) && !c.orangery],
+];
+function renderCoaches() {
+  $('#stats').innerHTML = FILTERS.map(([k, l, fn]) =>
+    `<div class="stat${filter === k ? ' on' : ''}" data-filter="${k}"><div class="n">${data.coaches.filter(fn).length}</div><div class="l">${l}</div></div>`).join('');
+  $$('.stat').forEach(s => s.onclick = () => { filter = s.dataset.filter; renderCoaches(); });
+
+  const q = $('#search').value.trim().toLowerCase();
+  const fn = FILTERS.find(f => f[0] === filter)[2];
+  let list = data.coaches.filter(fn).filter(c => !q ||
+    [c.firstName, c.lastName, c.email, c.title, c.location, c.modalityTags, c.interestTags, c.adminNotes].join(' ').toLowerCase().includes(q));
+  const sort = $('#sort').value;
+  const ts = c => new Date(c.timestamp).getTime() || 0;
+  list.sort(sort === 'name' ? (a, b) => (a.firstName + a.lastName).localeCompare(b.firstName + b.lastName)
+    : sort === 'old' ? (a, b) => ts(a) - ts(b)
+    : sort === 'updated' ? (a, b) => (new Date(b.updatedAt).getTime() || 0) - (new Date(a.updatedAt).getTime() || 0)
+    : (a, b) => ts(b) - ts(a));
+  $('#resultCount').textContent = list.length + ' shown';
+
+  if (!list.length) { $('#coachList').innerHTML = '<div class="empty"><div class="big">no one here</div>Try a different search or filter.</div>'; return; }
+  $('#coachList').innerHTML = list.map(c => `
+    <div class="crow" data-id="${esc(c.id)}">
+      <div class="thumb">${thumb(c)}</div>
+      <div style="min-width:0"><div class="cname">${esc(c.firstName + ' ' + c.lastName)}</div><div class="ctitle">${esc(c.title || '—')}</div></div>
+      <div class="c-mid" style="min-width:0"><div class="cmail">${esc(c.email)}</div><div class="ctitle">${esc(c.location || '')}</div></div>
+      <div class="cdate">${esc(fmtDay(c.timestamp))}</div>
+      <div class="flags">
+        <button class="flag live${c.approved ? ' on' : ''}" data-flag="approved">${c.approved ? 'live' : 'hidden'}</button>
+        <button class="flag lb${c.lilbird ? ' on' : ''}${!c.lilbird && yes(c.lilbirdInterested) ? ' want' : ''}" data-flag="lilbird">lil' bird</button>
+        <button class="flag or${c.orangery ? ' on' : ''}${!c.orangery && yes(c.orangeryInterested) ? ' want' : ''}" data-flag="orangery">orangery</button>
+      </div>
+    </div>`).join('');
+  $$('.crow').forEach(row => {
+    row.onclick = e => { if (!e.target.closest('.flag')) openCoach(row.dataset.id); };
+    $$('.flag', row).forEach(f => f.onclick = () => quickFlag(row.dataset.id, f.dataset.flag, f));
+  });
+}
+$('#search').addEventListener('input', renderCoaches);
+$('#sort').addEventListener('change', renderCoaches);
+
+async function quickFlag(id, flag, btn) {
+  const c = data.coaches.find(x => x.id === id); const val = !c[flag];
+  if (flag === 'approved' && !val && !confirm(`Hide ${c.firstName} from the public directory?`)) return;
+  btn.disabled = true;
+  try {
+    await api('adminUpdateCoach', { id, fields: { [flag]: val } });
+    c[flag] = val; renderCoaches();
+    toast(flag === 'approved' ? (val ? `${c.firstName} is now live ✓` : `${c.firstName} is hidden`) : 'Saved ✓');
+  } catch (e) { toast(e.message, true); btn.disabled = false; }
+}
+
+// ── DRAWER ────────────────────────────────────────────────
+let drawerDirty = false;
+function openDrawer(title, body, foot) {
+  $('#drawerTitle').textContent = title; $('#drawerBody').innerHTML = body; $('#drawerFoot').innerHTML = foot;
+  $('#drawerBody').scrollTop = 0; drawerDirty = false;
+  $('#drawer').classList.add('show'); $('#drawerBg').classList.add('show');
+  $$('#drawerBody input, #drawerBody textarea, #drawerBody select').forEach(el => el.addEventListener('input', () => drawerDirty = true));
+}
+function closeDrawer(force) {
+  if (!force && drawerDirty && !confirm('Discard your unsaved changes?')) return;
+  $('#drawer').classList.remove('show'); $('#drawerBg').classList.remove('show'); drawerDirty = false;
+}
+$('#drawerClose').onclick = () => closeDrawer();
+$('#drawerBg').onclick = () => closeDrawer();
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#cropModal').classList.contains('show')) closeDrawer(); });
+
+const inp = (f, label, v, type = 'text', extra = '') => `<div class="field"><label>${label}</label><input type="${type}" data-f="${f}" value="${esc(v)}" ${extra}></div>`;
+const area = (f, label, v, max, h) => `<div class="field"><label>${label}</label><textarea data-f="${f}" ${max ? `data-max="${max}"` : ''} style="${h ? 'min-height:' + h + 'px' : ''}">${esc(v)}</textarea>${max ? '<div class="count"></div>' : ''}</div>`;
+const sel = (f, label, v, opts, blank) => {
+  const o = opts.slice(); if (v && !o.includes(v)) o.push(v);
+  return `<div class="field"><label>${label}</label><select data-f="${f}">${o.map(x => `<option value="${esc(x)}"${x === v ? ' selected' : ''}>${x ? esc(x) : (blank || '—')}</option>`).join('')}</select></div>`;
+};
+const chips = (field, list, selected) => `<div class="chips" data-chips="${field}">${list.map(t => `<span class="chip${selected.includes(t) ? ' on' : ''}" data-t="${esc(t)}">${esc(t)}</span>`).join('')}</div>`;
+
+let editPhoto = null, removePhoto = false;
+function openCoach(id) {
+  const c = data.coaches.find(x => x.id === id); if (!c) return;
+  editPhoto = null; removePhoto = false;
+  const mod = splitTags(c.modalityTags), int = splitTags(c.interestTags);
+  const extraMod = mod.filter(t => !TAGS.speciality.includes(t) && !TAGS.format.includes(t));
+  const body = `
+    <div class="photo-edit">
+      <div class="thumb" id="dPhoto">${thumb(c)}</div>
+      <div style="display:flex;flex-direction:column;gap:.4rem;align-items:flex-start">
+        <button class="btn btn-ghost btn-sm" id="dPhotoBtn">Change photo</button>
+        ${c.photo ? '<button class="link-btn" id="dPhotoRemove" style="font-size:.95rem">remove photo</button>' : ''}
+        <span class="tmeta" id="dPhotoNote"></span>
+      </div>
+    </div>
+    <div class="meta-line">
+      Submitted ${esc(fmtDay(c.timestamp) || '—')}${c.updatedAt ? ' · last updated ' + esc(fmtDay(c.updatedAt)) : ''} · ID ${esc(c.id)}
+      ${c.credDocUrl ? ` · <a href="${esc(c.credDocUrl)}" target="_blank">credential document ↗</a>` : ''}
+    </div>
+    <div class="toggles">
+      <label class="toggle"><input type="checkbox" data-b="approved" ${c.approved ? 'checked' : ''}> live on directory</label>
+      <label class="toggle"><input type="checkbox" data-b="lilbird" ${c.lilbird ? 'checked' : ''}> lil' bird certified</label>
+      <label class="toggle"><input type="checkbox" data-b="orangery" ${c.orangery ? 'checked' : ''}> orangery certified</label>
+    </div>
+    <div class="tmeta" style="margin-bottom:.4rem">
+      Interested in lil' bird: <b>${yes(c.lilbirdInterested) ? 'yes' : 'no'}</b> · Interested in Orangery: <b>${yes(c.orangeryInterested) ? 'yes' : 'no'}</b>
+    </div>
+    ${area('adminNotes', 'Private notes <span class="hint">— only you see these</span>', c.adminNotes, 0, 60)}
+
+    <div class="section-title">Basics</div>
+    <div class="row">${inp('firstName', 'First name', c.firstName)}${inp('lastName', 'Last name', c.lastName)}</div>
+    ${inp('email', 'Email <span class="hint">— this is what they sign in with</span>', c.email, 'email')}
+    ${inp('title', 'Title / role', c.title)}
+    <div class="row">${inp('location', 'Location', c.location)}${sel('timezone', 'Time zone', c.timezone, OPTIONS.timezone)}</div>
+    ${inp('languages', 'Languages', c.languages)}
+
+    <div class="section-title">Work</div>
+    <span class="group-label">speciality</span>${chips('modalityTags', TAGS.speciality.concat(extraMod), mod)}
+    <span class="group-label">format</span>${chips('modalityTags', TAGS.format, mod)}
+    <div style="height:.8rem"></div>
+    ${area('bio', 'Who they are', c.bio, 600, 120)}
+    ${area('approach', 'How they work', c.approach, 500)}
+    ${area('different', 'What makes them different', c.different, 300, 70)}
+    ${inp('background', 'Background', c.background)}
+    <div class="row">${sel('experience', 'Experience', c.experience, OPTIONS.experience)}${sel('pricing', 'Pricing', c.pricing, OPTIONS.pricing, 'Prefer not to say')}</div>
+
+    <div class="section-title">Who they're for</div>
+    ${chips('interestTags', TAGS.interest.concat(int.filter(t => !TAGS.interest.includes(t))), int)}
+    <div style="height:.8rem"></div>
+    ${area('goodFor', 'Good fit if… <span class="hint">— one per line</span>', c.goodFor, 0, 100)}
+
+    <div class="section-title">Links & credentials</div>
+    ${inp('bookingLink', 'Booking link', c.bookingLink, 'url')}
+    ${inp('website', 'Website', c.website, 'url')}
+    <div class="row">${inp('linkedin', 'LinkedIn', c.linkedin, 'url')}${inp('instagram', 'Instagram', c.instagram, 'url')}</div>
+    ${sel('availability', 'Availability', c.availability, OPTIONS.availability)}
+    ${inp('credentials', 'Credentials <span class="hint">— comma separated</span>', c.credentials)}
+  `;
+  const foot = `<button class="btn btn-danger btn-sm" id="dArchive">Archive coach</button>
+    <div style="display:flex;gap:.5rem"><button class="btn btn-ghost" id="dCancel">Cancel</button><button class="btn btn-gold" id="dSave">Save changes</button></div>`;
+  openDrawer(c.firstName + ' ' + c.lastName, body, foot);
+
+  const tagState = { modalityTags: mod.slice(), interestTags: int.slice() };
+  $$('#drawerBody [data-chips]').forEach(box => $$('.chip', box).forEach(ch => ch.onclick = () => {
+    const f = box.dataset.chips, t = ch.dataset.t, cur = tagState[f];
+    tagState[f] = cur.includes(t) ? cur.filter(x => x !== t) : cur.concat([t]);
+    ch.classList.toggle('on'); drawerDirty = true;
+  }));
+  $$('#drawerBody [data-max]').forEach(el => { const u = () => { const n = el.value.length, m = +el.dataset.max, k = el.nextElementSibling; k.textContent = n + ' / ' + m; k.classList.toggle('over', n > m); }; u(); el.addEventListener('input', u); });
+  $$('#drawerBody [data-b]').forEach(el => el.addEventListener('change', () => drawerDirty = true));
+  $('#dPhotoBtn').onclick = () => { cropTarget = src => { editPhoto = src; removePhoto = false; $('#dPhoto').innerHTML = `<img src="${src}" alt="">`; $('#dPhotoNote').textContent = 'new photo — save to publish'; drawerDirty = true; }; $('#photoFile').click(); };
+  if ($('#dPhotoRemove')) $('#dPhotoRemove').onclick = () => { removePhoto = true; editPhoto = null; $('#dPhoto').innerHTML = esc(initials(c)); $('#dPhotoNote').textContent = 'photo will be removed on save'; drawerDirty = true; };
+  $('#dCancel').onclick = () => closeDrawer();
+  $('#dArchive').onclick = async () => {
+    if (!confirm(`Archive ${c.firstName} ${c.lastName}?\n\nThey'll be removed from the directory and this list, and their row moves to the "Archive" tab in your Sheet (nothing is deleted).`)) return;
+    try { await api('adminArchiveCoach', { id }); data.coaches = data.coaches.filter(x => x.id !== id); closeDrawer(true); renderCoaches(); toast('Archived'); }
+    catch (e) { toast(e.message, true); }
+  };
+  $('#dSave').onclick = async () => {
+    const fields = {};
+    $$('#drawerBody [data-f]').forEach(el => fields[el.dataset.f] = el.value);
+    $$('#drawerBody [data-b]').forEach(el => fields[el.dataset.b] = el.checked);
+    fields.modalityTags = tagState.modalityTags.join(', ');
+    fields.interestTags = tagState.interestTags.join(', ');
+    for (const [f, m] of [['bio', 600], ['approach', 500], ['different', 300]]) if ((fields[f] || '').length > m) { toast(`“${f}” is over ${m} characters`, true); return; }
+    const b = $('#dSave'); b.disabled = true; b.textContent = 'Saving…';
+    try {
+      const payload = { id, fields };
+      if (editPhoto) { payload.photoBase64 = editPhoto.split(',')[1]; payload.photoName = 'photo.jpg'; }
+      if (removePhoto) payload.removePhoto = true;
+      await api('adminUpdateCoach', payload);
+      closeDrawer(true); toast('Saved ✓');
+      await load(true);
+    } catch (e) { toast(e.message, true); b.disabled = false; b.textContent = 'Save changes'; }
+  };
+}
+
+// ── TRAININGS ─────────────────────────────────────────────
+function todayStr() { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+function fmtDate(d) { const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? new Date(+m[1], +m[2] - 1, +m[3]).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }) : 'Date tbc'; }
+function fmtTime(t) { const m = String(t || '').match(/^(\d{1,2}):(\d{2})/); if (!m) return t || ''; let h = +m[1]; const ap = h >= 12 ? 'pm' : 'am'; h = h % 12 || 12; return h + (m[2] !== '00' ? ':' + m[2] : '') + ap; }
+
+function renderTrainings() {
+  const f = $('#trFilter').value, today = todayStr();
+  let list = data.trainings.slice();
+  if (f === 'active') list = list.filter(t => !t.date || t.date >= today);
+  if (f === 'past') list = list.filter(t => t.date && t.date < today);
+  list.sort((a, b) => f === 'past' ? String(b.date).localeCompare(String(a.date)) : String(a.date || '9999').localeCompare(String(b.date || '9999')));
+  if (!list.length) {
+    $('#trainingList').innerHTML = `<div class="card empty"><div class="big">${f === 'past' ? 'no past trainings' : 'no trainings yet'}</div>${f === 'past' ? '' : 'Create one with “+ New training”. It starts as a draft — set it to <b>Open</b> when you want coaches to see it.'}</div>`;
+    return;
+  }
+  $('#trainingList').innerHTML = list.map(t => {
+    const regs = (t.registrations || []);
+    const active = regs.filter(r => r.status === 'Registered');
+    const cap = +t.capacity || 0;
+    return `<div class="tcard">
+      <div class="thead">
+        <div>
+          <h3>${esc(t.title)}<span class="status ${esc(t.status)}">${esc(t.status)}</span></h3>
+          <div class="tmeta">${[fmtDate(t.date), fmtTime(t.time), t.format].filter(Boolean).map(esc).join(' · ')}</div>
+          <div class="tmeta" style="margin-top:.3rem"><b>${active.length}</b>${cap ? ' / ' + cap : ''} registered</div>
+          ${cap ? `<div class="bar"><div style="width:${Math.min(100, active.length / cap * 100)}%"></div></div>` : ''}
+        </div>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+          ${active.length ? `<button class="btn btn-ghost btn-sm" data-copy="${esc(t.id)}">Copy emails</button>` : ''}
+          ${regs.length ? `<button class="btn btn-ghost btn-sm" data-toggle="${esc(t.id)}">Who's coming</button>` : ''}
+          <button class="btn btn-dark btn-sm" data-edit="${esc(t.id)}">Edit</button>
+        </div>
+      </div>
+      <div class="regs hidden" id="regs-${esc(t.id)}">
+        ${regs.sort((a, b) => (a.status === 'Registered' ? 0 : 1) - (b.status === 'Registered' ? 0 : 1)).map(r => `
+          <div class="reg${r.status !== 'Registered' ? ' cancelled' : ''}">
+            <span>${esc(r.coachName)} · <span class="tmeta">${esc(r.email)}</span>${r.status !== 'Registered' ? ' <span class="tmeta">(cancelled)</span>' : ''}</span>
+            <button class="link-btn" style="font-size:.95rem" data-reg="${esc(t.id)}|${esc(r.coachId)}|${r.status === 'Registered' ? 'Cancelled' : 'Registered'}">${r.status === 'Registered' ? 'remove' : 'restore'}</button>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  $$('[data-edit]').forEach(b => b.onclick = () => openTraining(b.dataset.edit));
+  $$('[data-toggle]').forEach(b => b.onclick = () => $('#regs-' + b.dataset.toggle).classList.toggle('hidden'));
+  $$('[data-copy]').forEach(b => b.onclick = async () => {
+    const t = data.trainings.find(x => x.id === b.dataset.copy);
+    const emails = t.registrations.filter(r => r.status === 'Registered').map(r => r.email).join(', ');
+    try { await navigator.clipboard.writeText(emails); toast('Emails copied — paste them into BCC'); } catch (e) { prompt('Copy these emails:', emails); }
+  });
+  $$('[data-reg]').forEach(b => b.onclick = async () => {
+    const [trainingId, coachId, status] = b.dataset.reg.split('|');
+    if (status === 'Cancelled' && !confirm('Remove this coach from the training? (They won\'t be emailed.)')) return;
+    try {
+      await api('adminSetRegistration', { trainingId, coachId, status });
+      const r = data.trainings.find(x => x.id === trainingId).registrations.find(x => x.coachId === coachId); r.status = status;
+      renderTrainings(); $('#regs-' + trainingId).classList.remove('hidden');
+    } catch (e) { toast(e.message, true); }
+  });
+}
+$('#trFilter').addEventListener('change', renderTrainings);
+$('#newTrainingBtn').onclick = () => openTraining(null);
+
+function openTraining(id) {
+  const t = id ? data.trainings.find(x => x.id === id) : { title: '', date: '', time: '', format: 'Virtual', where: '', description: '', capacity: '', status: 'Draft' };
+  const body = `
+    ${inp('title', 'Title', t.title, 'text', 'placeholder="e.g. Story coaching intensive"')}
+    <div class="row3">${inp('date', 'Date', t.date, 'date')}${inp('time', 'Start time <span class="hint">— your time zone</span>', t.time, 'time')}${sel('format', 'Format', t.format, OPTIONS.format)}</div>
+    ${inp('where', 'Location or joining link <span class="hint">— only shown to coaches once they register</span>', t.where, 'text', 'placeholder="https://zoom.us/… or an address"')}
+    ${area('description', 'Description', t.description, 0, 130)}
+    <div class="row">${inp('capacity', 'Spots available <span class="hint">— leave blank for unlimited</span>', t.capacity, 'number', 'min="0"')}${sel('status', 'Status', t.status, OPTIONS.status)}</div>
+    <p class="tmeta"><b>Draft</b> — only you can see it · <b>Open</b> — coaches can register · <b>Closed</b> — visible but no new sign-ups · <b>Hidden</b> — removed from dashboards.</p>`;
+  const foot = `<span></span><div style="display:flex;gap:.5rem"><button class="btn btn-ghost" id="tCancel">Cancel</button><button class="btn btn-gold" id="tSave">${id ? 'Save changes' : 'Create training'}</button></div>`;
+  openDrawer(id ? 'Edit training' : 'New training', body, foot);
+  $('#tCancel').onclick = () => closeDrawer();
+  $('#tSave').onclick = async () => {
+    const training = { id: id || undefined };
+    $$('#drawerBody [data-f]').forEach(el => training[el.dataset.f] = el.value);
+    if (!training.title.trim()) { toast('Please give the training a title', true); return; }
+    const b = $('#tSave'); b.disabled = true; b.textContent = 'Saving…';
+    try { await api('adminSaveTraining', { training }); closeDrawer(true); toast(id ? 'Training updated ✓' : 'Training created ✓'); await load(true); }
+    catch (e) { toast(e.message, true); b.disabled = false; b.textContent = id ? 'Save changes' : 'Create training'; }
+  };
+}
+
+// ── PHOTO CROPPER ─────────────────────────────────────────
+let cropTarget = null;
+const crop = { img: null, scale: 1, min: 1, x: 0, y: 0, V: 600 };
+const cv = $('#cropCanvas'), cx = cv.getContext('2d');
+$('#photoFile').onchange = e => {
+  const file = e.target.files[0]; e.target.value = ''; if (!file) return;
+  const img = new Image();
+  img.onload = () => {
+    crop.img = img; crop.min = Math.max(crop.V / img.width, crop.V / img.height); crop.scale = crop.min; $('#cropZoom').value = 1;
+    crop.x = (crop.V - img.width * crop.scale) / 2; crop.y = 0; clampCrop(); drawCrop(); $('#cropModal').classList.add('show');
+  };
+  img.onerror = () => toast('Couldn\'t read that image — try a JPG or PNG.', true);
+  img.src = URL.createObjectURL(file);
+};
+function clampCrop() { const w = crop.img.width * crop.scale, h = crop.img.height * crop.scale; crop.x = Math.min(0, Math.max(crop.V - w, crop.x)); crop.y = Math.min(0, Math.max(crop.V - h, crop.y)); }
+function drawCrop() { cx.fillStyle = '#e8e3d8'; cx.fillRect(0, 0, crop.V, crop.V); cx.drawImage(crop.img, crop.x, crop.y, crop.img.width * crop.scale, crop.img.height * crop.scale); }
+$('#cropZoom').oninput = e => { const p = crop.scale; crop.scale = crop.min * +e.target.value; const c = crop.V / 2; crop.x = c - (c - crop.x) * (crop.scale / p); crop.y = c - (c - crop.y) * (crop.scale / p); clampCrop(); drawCrop(); };
+(() => {
+  const view = $('#cropView'); let drag = null;
+  view.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY }; view.setPointerCapture(e.pointerId); });
+  view.addEventListener('pointermove', e => { if (!drag) return; const k = crop.V / view.clientWidth; crop.x += (e.clientX - drag.x) * k; crop.y += (e.clientY - drag.y) * k; drag = { x: e.clientX, y: e.clientY }; clampCrop(); drawCrop(); });
+  view.addEventListener('pointerup', () => drag = null);
+  view.addEventListener('wheel', e => { e.preventDefault(); const z = $('#cropZoom'); z.value = Math.min(4, Math.max(1, +z.value - e.deltaY * 0.002)); z.oninput({ target: z }); }, { passive: false });
+})();
+$('#cropCancel').onclick = () => $('#cropModal').classList.remove('show');
+$('#cropDone').onclick = () => {
+  const OUT = 800, out = document.createElement('canvas'); out.width = out.height = OUT; const k = OUT / crop.V, c = out.getContext('2d');
+  c.fillStyle = '#fff'; c.fillRect(0, 0, OUT, OUT);
+  c.drawImage(crop.img, crop.x * k, crop.y * k, crop.img.width * crop.scale * k, crop.img.height * crop.scale * k);
+  $('#cropModal').classList.remove('show');
+  if (cropTarget) cropTarget(out.toDataURL('image/jpeg', 0.86));
+};
+
+// ── START ─────────────────────────────────────────────────
+if (token) load(); else show('#signinView');
+</script>
+</body>
+</html>
