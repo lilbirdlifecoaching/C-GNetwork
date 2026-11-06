@@ -509,7 +509,7 @@
 
       <div class="field">
         <label>Other certifications <span class="hint">— optional, free text</span></label>
-        <input type="text" id="background" placeholder="e.g. M.Div, NLP Practitioner, 200hr Yoga Teacher..." />
+        <input type="text" id="otherCerts" placeholder="e.g. M.Div, NLP Practitioner, 200hr Yoga Teacher..." />
       </div>
 
       <!-- lil' bird certification -->
@@ -769,7 +769,7 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
     location: document.getElementById('location').value.trim(), timezone: document.getElementById('timezone').value,
     languages: document.getElementById('languages').value.trim(), bio: document.getElementById('bio').value.trim(),
     approach: document.getElementById('approach').value.trim(), different: document.getElementById('different').value.trim(),
-    background: document.getElementById('background').value.trim(), experience: document.getElementById('experience').value,
+    background: [document.getElementById('background').value.trim(), document.getElementById('otherCerts').value.trim()].filter(Boolean).join(' · '), experience: document.getElementById('experience').value,
     pricing: document.getElementById('pricing').value, goodFor: document.getElementById('goodFor').value.trim(),
     bookingLink: document.getElementById('bookingLink').value.trim(), website: document.getElementById('website').value.trim(),
     linkedin: document.getElementById('linkedin').value.trim(), instagram: document.getElementById('instagram').value.trim(),
