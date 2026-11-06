@@ -22,6 +22,9 @@
   .brand-row { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-muted); margin-bottom: 2rem; }
   .brand-link { color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
   .brand-link:hover { color: var(--gold); }
+  .signin-note { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.5rem 1rem; border: 1.5px solid var(--warm-border); border-radius: 30px; font-size: 0.86rem; color: var(--ink-muted); text-decoration: none; transition: all 0.2s; background: var(--paper); }
+  .signin-note b { color: var(--gold); font-weight: 500; }
+  .signin-note:hover { border-color: var(--gold); color: var(--ink); }
   header h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.2; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
   header h1 em { font-style: italic; color: var(--gold); }
   header p.sub { font-size: 1rem; color: var(--ink-muted); font-weight: 300; line-height: 1.65; max-width: 480px; margin: 0 auto; }
@@ -279,9 +282,10 @@
 <body>
 <div class="wrapper">
   <header>
-    <div class="brand-row">powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> &amp; <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a> · <a href="resources.html" class="brand-link">resources</a></div>
+    <div class="brand-row">powering <a href="https://lilbird.life" class="brand-link">lil' bird</a> &amp; <a href="https://orangery.solutions" class="brand-link">orangery.solutions</a> · <a href="resources.html" class="brand-link">resources</a> · <a href="dashboard" class="brand-link">coach sign in</a></div>
     <h1>join the <em>network</em></h1>
     <p class="sub">Tell us who you are, how you work, and who you're best placed to help. We'll review your profile and be in touch.</p>
+    <a class="signin-note" href="dashboard">Already in the network? <b>Sign in to your dashboard &rarr;</b></a>
   </header>
 
   <div class="progress-wrap">
