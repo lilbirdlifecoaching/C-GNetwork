@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide Training · lil' bird</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/gt.css">
+</head>
+<body>
+<div id="app"></div>
+<script>
+  // Same Apps Script web app as dashboard.html. Training actions are routed by handleTraining().
+  window.GT_CONFIG = { mode: 'live', api: 'https://script.google.com/macros/s/AKfycbxay87fiIVZ_9N2ACWdq33FOMUL72z4SjfUoEp3eFBMP2fIGo6Qx1ehXy32KW_ybsnU/exec' };
+</script>
+<script src="assets/gt-lib.js"></script>
+<script src="assets/gt-core.js"></script>
+<script src="assets/gt-content.js"></script>
+<script src="assets/gt-learn.js"></script>
+<script src="assets/gt-app.js"></script>
+<script>GT.mountTrainee(document.getElementById('app'));</script>
+</body>
+</html>
